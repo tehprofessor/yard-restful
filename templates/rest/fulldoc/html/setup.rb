@@ -1,7 +1,10 @@
 include Helpers::ModuleHelper
 
+
 def init
+  pp "--1--", options[:objects]
   options[:objects] = objects = run_verifier(options[:objects])
+  pp "--2--", options[:objects]
   options[:files] = ([options[:readme]] + options[:files]).compact.map {|t| t.to_s }
   options[:readme] = options[:files].first
   options[:title] ||= "Documentation by YARD #{YARD::VERSION}"
