@@ -13,7 +13,7 @@
   <% end %>
   <div class="clear"></div>
 
-  <h2>Services A-Z</h2>
+  <h2>Topics A-Z</h2>
   <% i = 0 %>
   <table>
     <tr>
@@ -27,9 +27,11 @@
             <li class="letter"><%= letter %></li>
             <ul>
               <% objects.each do |obj| %>
-                <li>
-                  <%= linkify(obj, obj.tags("url").first.text) %> 
-                </li>
+                <% unless obj.tags("topic").first.nil? %>
+                  <li>
+                    <%= linkify(obj, obj.tags("topic").first.text) %> 
+                  </li>
+                <% end %>
               <% end %>
             </ul>
           </ul>
@@ -37,4 +39,5 @@
       </td>
     </tr>
   </table>
+
 </div>

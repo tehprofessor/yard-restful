@@ -26,8 +26,8 @@ end
 
 def index
   @objects_by_letter = {}
-  objects = @objects.reject {|o| o.root? }.sort_by {|o| o.name.to_s }
-  objects.each {|o| (@objects_by_letter[o.name.to_s[0,1].upcase] ||= []) << o }
+  objects = @objects.reject {|o| o.root? || o.tags('topic').empty? }.sort_by {|o| o.tags('topic').first.text }
+  objects.each {|o| (@objects_by_letter[o.tags('topic').first.text[0,1].upcase] ||= []) << o }
   erb(:index)
 end
 

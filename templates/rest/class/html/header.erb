@@ -1,4 +1,8 @@
 <div class="service">
-  <h1><span class="minor_heading">Service: </span><%= object.tag("url").text %></h1>
+  <h1><span class="minor_heading">Resource: </span><%= object.tag("url").text %></h1>
+  <% unless object.tag("topic").nil? %>
+  <!-- fixme: needs style -->
+    <p>Topic: <%= object.tag("topic").text %></p>
+  <% end %>
   <%= yieldall %>
 </div>
