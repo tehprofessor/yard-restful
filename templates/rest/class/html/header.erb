@@ -2,7 +2,7 @@
   <h1><span class="minor_heading">Resource: </span><%= object.tag("url").text %></h1>
   <% unless object.tag("topic").nil? %>
   <!-- fixme: needs style -->
-    <p>Topic: <%= object.tag("topic").text %></p>
+    <h1><span class="minor_heading">Topic: </span><%= object.tag("topic").text %></h1>
   <% end %>
   <%= yieldall %>
 </div>
