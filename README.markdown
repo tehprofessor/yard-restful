@@ -1,27 +1,27 @@
-Yardoc RESTful Web Service Plugin
-=================================
+# Yardoc RESTful Web Service Plugin
+
 by VisFleet
 
 A plugin for [Yardoc](http://yardoc.org/) that generates documentation for RESTful web services. 
 
-Install
--------
+## Install
     sudo gem install yard-rest-plugin
 
 It also requires the Jeweler gem if you plan to use the rake build tasks.
 
-Generating Docs
----------------
+## Generating Docs
+
 When using yardoc you ask it to use the "rest" template (the -t option). For example: 
 
     yardoc '*.rb' -t rest --title "Our App's API"
 
-Writing Comments
-----------------
+## Writing Comments
+
 In addition to starting your comment with the normal RDoc description. The following tags are provided:
 
-- @url url. Specifies the URL that the service is accessed from. This tag is compulsory, only classes and methods 
-    that include this in their comments are included
+- @url url. Specifies the URL that the service is accessed from. This tag is compulsory, only **classes** and **methods** that include this in their comments are included.
+
+- @topic topic. Specifies the topic to categorise a **class** (not a method) under.
 
 - @argument [type] name description. Specifies an argument that is passed to the service. You can specify as 
     many of these as required
@@ -30,7 +30,13 @@ In addition to starting your comment with the normal RDoc description. The follo
 
 - @response_field name description. Further specifies the fields that are returned within the response
 
-For example:
+## Ignored Documentation
+
+This plugin only documents **classes** and **methods** with **@url** tags. It does not support module documentation.
+
+The rationale here is that you are documenting external services (as represented by controllers and methods), and not internal code.
+
+## Example:
 
     ##
     # Retuns all samples, as XML, for the current user that match the given parameters.
@@ -68,8 +74,8 @@ For example:
     def index
     end
 
-Development
------------
+## Development
+
 You can run the template locally over the included sample code by using the following rake tasks:
     
     rake ex:clean

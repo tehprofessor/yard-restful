@@ -18,18 +18,18 @@
   <table>
     <tr>
       <td valign='top' width="33%">
-        <% @objects_by_letter.sort_by {|l,o| l.to_s }.each do |letter, objects| %>
+        <% @topics.sort_by {|t,o| t.to_s }.each do |topic, objects| %>
           <% if (i += 1) % 8 == 0 %>
             </td><td valign='top' width="33%">
             <% i = 0 %>
           <% end %>
-          <ul id="alpha_<%= letter %>" class="alpha">
-            <li class="letter"><%= letter %></li>
+          <ul id="alpha_<%= topic %>" class="alpha">
+            <li class="letter"><%= topic %></li>
             <ul>
               <% objects.each do |obj| %>
-                <% unless obj.tags("topic").first.nil? %>
+                <% unless obj.tags("url").first.nil? %>
                   <li>
-                    <%= linkify(obj, obj.tags("topic").first.text) %> 
+                    <%= linkify(obj, obj.tags("url").first.text) %> 
                   </li>
                 <% end %>
               <% end %>
@@ -39,5 +39,17 @@
       </td>
     </tr>
   </table>
+
+
+  <h2>Resources A-Z</h2>
+  <ul>
+  <% @objects.each do |object| %>
+    <% unless object.tags("url").first.nil? %>
+      <li>
+        <%= linkify(object, object.tags("url").first.text) %> 
+      </li>
+    <% end %>
+  <% end %>
+  </ul>
 
 </div>

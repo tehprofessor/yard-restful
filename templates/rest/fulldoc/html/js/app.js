@@ -6,8 +6,8 @@ function fixBoxInfoHeights() {
 }
 
 function searchFrameLinks() {
-  $('#service_list_link').click(function() {
-    toggleSearchFrame(this, relpath + 'service_list.html');
+  $('#resource_list_link').click(function() {
+    toggleSearchFrame(this, relpath + 'resource_list.html');
   });
 
   $('#file_list_link').click(function() {

@@ -2,9 +2,9 @@ include Helpers::ModuleHelper
 
 
 def init
-  pp "--1--", options[:objects]
+  # pp "--1--", options[:objects]
   options[:objects] = objects = run_verifier(options[:objects])
-  pp "--2--", options[:objects]
+  # pp "--2--", options[:objects]
   options[:files] = ([options[:readme]] + options[:files]).compact.map {|t| t.to_s }
   options[:readme] = options[:files].first
   options[:title] ||= "Documentation by YARD #{YARD::VERSION}"
@@ -69,15 +69,15 @@ def generate_assets
   end
   
   @object = Registry.root
-  generate_service_list
+  generate_resource_list
   generate_file_list
 end
 
-def generate_service_list
+def generate_resource_list
   @items = options[:objects]
-  @list_title = "Service List"
-  @list_type = "service"
-  asset('service_list.html', erb(:full_list))
+  @list_title = "Resource List"
+  @list_type = "resource"
+  asset('resource_list.html', erb(:full_list))
 end
 
 def generate_file_list

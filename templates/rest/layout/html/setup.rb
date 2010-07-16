@@ -1,3 +1,5 @@
+include YARD::Templates::Helpers::FilterHelper
+
 def init
   @breadcrumb = []
 
@@ -25,9 +27,17 @@ def contents
 end
 
 def index
-  @objects_by_letter = {}
-  objects = @objects.reject {|o| o.root? || o.tags('topic').empty? }.sort_by {|o| o.tags('topic').first.text }
-  objects.each {|o| (@objects_by_letter[o.tags('topic').first.text[0,1].upcase] ||= []) << o }
+
+  legitimate_objects = @objects.reject {|o| o.root? || !is_class?(o) || o.tags('url').empty?}
+  topic_objects = legitimate_objects.reject{|o| o.tags('topic').empty? }
+  @topics = {}
+  
+  topic_objects.each do |object|
+    object.tags('topic').each { |topic| (@topics[topic.text] ||= []) << object }
+  end
+
+  @resources = legitimate_objects.sort_by {|o| o.tags('url').first.text }
+  
   erb(:index)
 end
 

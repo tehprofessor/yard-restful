@@ -1,6 +1,7 @@
 ##
 # The Sample sevices let you list, create, update, and delete Samples from our application.
 # @url /sample
+# @topic Sample
 #
 class SampleController
 
