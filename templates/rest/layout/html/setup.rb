@@ -1,4 +1,4 @@
-include YARD::Templates::Helpers::FilterHelper
+include Helpers::FilterHelper
 
 def init
   @breadcrumb = []

@@ -4,8 +4,11 @@ function fixBoxInfoHeights() {
        $(this).prev().height($(this).height()); 
     });
 }
-
 function searchFrameLinks() {
+  $('#topic_list_link').click(function() {
+    toggleSearchFrame(this, relpath + 'topic_list.html');
+  });
+
   $('#resource_list_link').click(function() {
     toggleSearchFrame(this, relpath + 'resource_list.html');
   });

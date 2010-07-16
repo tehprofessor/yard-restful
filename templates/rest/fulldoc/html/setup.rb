@@ -1,10 +1,8 @@
 include Helpers::ModuleHelper
-
+include Helpers::FilterHelper
 
 def init
-  # pp "--1--", options[:objects]
   options[:objects] = objects = run_verifier(options[:objects])
-  # pp "--2--", options[:objects]
   options[:files] = ([options[:readme]] + options[:files]).compact.map {|t| t.to_s }
   options[:readme] = options[:files].first
   options[:title] ||= "Documentation by YARD #{YARD::VERSION}"
@@ -70,7 +68,22 @@ def generate_assets
   
   @object = Registry.root
   generate_resource_list
+  generate_topic_list
   generate_file_list
+end
+
+def generate_topic_list
+  topic_objects = options[:objects].reject {|o| o.root? || !is_class?(o) || o.tags('url').empty? || o.tags('topic').empty? }
+  @topics = {}
+  
+  topic_objects.each do |object|
+    object.tags('topic').each { |topic| (@topics[topic.text] ||= []) << object }
+  end
+
+
+  @list_title = "Topic List"
+  @list_type = "topic"
+  asset('topic_list.html', erb(:full_list))
 end
 
 def generate_resource_list

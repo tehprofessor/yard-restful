@@ -222,4 +222,14 @@ h1 .note.title {
   text-transform: capitalize; 
 }
 
+ul.box {
+  font-size: 1em;
+  height: 1em;
+}
 
+ul.box li {
+  float: left;
+  display: block;
+  text-align: left;
+  padding-right: 10px;
+}
