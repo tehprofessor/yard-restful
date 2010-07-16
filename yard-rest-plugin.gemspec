@@ -24,6 +24,7 @@ Gem::Specification.new do |s|
      "lib/yard-rest-plugin.rb",
      "lib/yard-rest-plugin/base_helper.rb",
      "pkg/yard-rest-plugin-0.1.5.gem",
+     "pkg/yard-rest-plugin-0.2.0.gem",
      "templates/rest/.DS_Store",
      "templates/rest/class/html/header.erb",
      "templates/rest/class/html/method_details_list.erb",
