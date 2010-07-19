@@ -15,6 +15,7 @@ def init
       sections :layout, [:index]
     when CodeObjects::Base
       type = object.root? ? :module : object.type
+      #sections :layout, [T(type), T('disqus')]
       sections :layout, [T(type)]
     end
   else
