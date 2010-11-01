@@ -1,5 +1,5 @@
 def init
-  sections :index, [:argument, :example_response, :response_field]
+  sections :index, [:argument, :example_request, :request_field, :example_response, :response_field]
 end
 
 def response_field
