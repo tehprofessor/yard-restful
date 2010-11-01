@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Aisha Fenton"]
-  s.date = %q{2010-07-19}
+  s.date = %q{2010-11-01}
   s.description = %q{A plugin for Yardoc that produces API documentation for Restful web services. See README.markdown for more details}
   s.email = %q{aisha.fenton@visfleet.com}
   s.extra_rdoc_files = [
@@ -57,6 +57,7 @@ Gem::Specification.new do |s|
      "templates/rest/method_details/html/method_signature.erb",
      "templates/rest/method_details/html/setup.rb",
      "templates/rest/module/setup.rb",
+     "templates/rest/tags/html/example_request.erb",
      "templates/rest/tags/html/example_response.erb",
      "templates/rest/tags/html/generic_tag.erb",
      "templates/rest/tags/html/index.erb",
@@ -66,14 +67,14 @@ Gem::Specification.new do |s|
   s.homepage = %q{http://github.com/visfleet/yard-rest-plugin}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.6}
+  s.rubygems_version = %q{1.3.7}
   s.summary = %q{A plugin for Yardoc that produces API documentation for Restful web services}
 
   if s.respond_to? :specification_version then
     current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
     s.specification_version = 3
 
-    if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
+    if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<yard>, [">= 0.5"])
     else
       s.add_dependency(%q<yard>, [">= 0.5"])
