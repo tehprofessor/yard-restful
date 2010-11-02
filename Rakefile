@@ -30,5 +30,4 @@ namespace :ex do
     `rm -R doc`
     `rm -R .yardoc`
   end
-  
 end
