@@ -2,6 +2,10 @@ def init
   sections :index, [:argument, :example_request, :request_field, :example_response, :response_field]
 end
 
+def request_field
+  generic_tag :request_field
+end
+
 def response_field
   generic_tag :response_field
 end

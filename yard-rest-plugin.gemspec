@@ -5,28 +5,23 @@
 
 Gem::Specification.new do |s|
   s.name = %q{yard-rest-plugin}
-  s.version = "0.2.1"
+  s.version = "0.2.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Aisha Fenton"]
-  s.date = %q{2010-11-01}
+  s.date = %q{2010-11-02}
   s.description = %q{A plugin for Yardoc that produces API documentation for Restful web services. See README.markdown for more details}
   s.email = %q{aisha.fenton@visfleet.com}
   s.extra_rdoc_files = [
-    "README.markdown"
+    "README.markdown",
+     "VERSION"
   ]
   s.files = [
-    "README.markdown",
-     "Rakefile",
-     "VERSION",
+    "Rakefile",
      "example/README.markdown",
      "example/SampleController.rb",
      "lib/yard-rest-plugin.rb",
      "lib/yard-rest-plugin/base_helper.rb",
-     "pkg/yard-rest-plugin-0.1.5.gem",
-     "pkg/yard-rest-plugin-0.2.0.gem",
-     "pkg/yard-rest-plugin-0.2.1.gem",
-     "templates/rest/.DS_Store",
      "templates/rest/class/html/header.erb",
      "templates/rest/class/html/method_details_list.erb",
      "templates/rest/class/html/setup.rb",
@@ -34,8 +29,6 @@ Gem::Specification.new do |s|
      "templates/rest/disqus/setup.rb",
      "templates/rest/docstring/html/setup.rb",
      "templates/rest/docstring/html/text.erb",
-     "templates/rest/fulldoc/.DS_Store",
-     "templates/rest/fulldoc/html/.DS_Store",
      "templates/rest/fulldoc/html/css/common.css",
      "templates/rest/fulldoc/html/css/full_list.css",
      "templates/rest/fulldoc/html/css/style.css",
@@ -61,8 +54,7 @@ Gem::Specification.new do |s|
      "templates/rest/tags/html/example_response.erb",
      "templates/rest/tags/html/generic_tag.erb",
      "templates/rest/tags/html/index.erb",
-     "templates/rest/tags/setup.rb",
-     "yard-rest-plugin.gemspec"
+     "templates/rest/tags/setup.rb"
   ]
   s.homepage = %q{http://github.com/visfleet/yard-rest-plugin}
   s.rdoc_options = ["--charset=UTF-8"]
