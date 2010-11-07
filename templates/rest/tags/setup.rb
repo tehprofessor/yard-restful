@@ -1,5 +1,6 @@
 def init
-  sections :index, [:argument, :example_request, :request_field, :example_response, :response_field]
+  super
+  sections.place([:argument, :example_request, :request_field, :example_response, :response_field]).before(:index)
 end
 
 def request_field

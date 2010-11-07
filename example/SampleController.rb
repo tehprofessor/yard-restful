@@ -8,8 +8,8 @@ class SampleController
   ##
   # Retuns all samples, as XML, for the current user that match the given parameters.
   # 
-  # @url
-  # [GET] /samples/index.[format]?[arguments]
+  # @url [GET] /samples/index.[format]?[arguments]
+  # @url [GET] /samples.[format]?[arguments]
   # 
   # @argument [String] format Only "xml" is support at this time.
   # @argument [String] name The name of the sample
@@ -50,8 +50,7 @@ class SampleController
   ##
   # Creates a new sample
   # 
-  # @url
-  # [POST] /samples.[format]?[arguments]
+  # @url [POST] /samples.[format]?[arguments]
   # 
   # @argument [String] format Only "xml" is support at this time.
   #
