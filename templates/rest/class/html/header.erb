@@ -1,7 +1,18 @@
 <div class="service">
-  <h1><span class="minor_heading">Resource: </span><%= object.tag("url").text %></h1>
+  <h1>
+    <span class="minor_heading">Resource: </span>
+    <% if object.tags("url").size <= 1 %>
+      <%= object.tag("url").text %>
+    <% else %>
+      <ul>
+        <% object.tags("url").each do |url_tag| %>
+          <li><%= url_tag.text %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </h1>
   <% unless object.tags("topic").empty? %>
-    <h3 class="topic">Topics:</h3> 
+    <h3 class="topic">Topics:</h3>
     <ul class="box">
       <% object.tags("topic").each do |topic| %>
         <li><%= topic.text %></li>
