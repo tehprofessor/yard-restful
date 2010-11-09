@@ -4,7 +4,9 @@
   <li class="r<%= n %>"><%= topic%></li>
   <% unless objects.empty? %>
     <% objects.each do |object| %>
-      <li class="r<%= n %>"><%= linkify(object, object.tag("url").text) %></li>
+      <% object.tags("url").each do |url_tag| %>
+        <li class="r<%= n %>"><%= linkify(object, url_tag.text) %></li>
+      <% end %>
     <% end%>
   <% end %>
   <% n = n == 2 ? 1 : 2 %>
