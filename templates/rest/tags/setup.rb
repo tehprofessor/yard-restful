@@ -1,6 +1,12 @@
 def init
   super
-  sections.place([:argument, :example_request, :request_field, :example_response, :response_field]).before(:index)
+  sections :index, [:argument,
+                    :example_request,
+                    :request_field,
+                    :example_response,
+                    :response_field,
+                    :header,
+                    :response_code]
 end
 
 def request_field
@@ -13,6 +19,14 @@ end
 
 def argument
   generic_tag :argument, :no_types => false
+end
+
+def header
+  generic_tag :header
+end
+
+def response_code
+  generic_tag :response_code
 end
 
 def generic_tag(name, opts = {})
