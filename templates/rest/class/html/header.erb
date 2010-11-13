@@ -19,17 +19,20 @@
       <% end %>
     </ul>
   <% end %>
+  <% object.tags("image").each do |image| %>
+    <img src="<%= image.text %>">
+  <% end %>
   <%= yieldall %>
 </div>
 
 
 
 
-  
-  
-    
-  
-    
-  
-  
-  
+
+
+
+
+
+
+
+
