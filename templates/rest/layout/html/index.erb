@@ -42,10 +42,14 @@
 
   <h2>Resources A-Z</h2>
   <ul>
+    <% urls = [] %>
     <% @objects.each do |object| %>
       <% object.tags("url").each do |url_tag| %>
-        <li><%= linkify(object, url_tag.text) %></li>
+        <% urls << [url_tag.text, object] %>
       <% end %>
+    <% end %>
+    <% urls.sort_by(&:first).each do |elem| %>
+      <li><%= linkify(elem.last, elem.first) %></li>
     <% end %>
   </ul>
 
