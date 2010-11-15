@@ -12,10 +12,9 @@ def init
   elsif object
     case object
     when '_index.html'
-      sections :layout, [:index]
+      sections :layout, [:index, [T('class')]]
     when CodeObjects::Base
       type = object.root? ? :module : object.type
-      #sections :layout, [T(type), T('disqus')]
       sections :layout, [T(type)]
     end
   else
@@ -29,16 +28,17 @@ end
 
 def index
 
-  legitimate_objects = @objects.reject {|o| o.root? || !is_class?(o) || o.tags('url').empty?}
-  topic_objects = legitimate_objects.reject{|o| o.tags('topic').empty? }
+  legitimate_objects = index_objects(@objects).reject {|o| o.root? }
   @topics = {}
-  
-  topic_objects.each do |object|
+
+  legitimate_objects.each do |object|
     object.tags('topic').each { |topic| (@topics[topic.text] ||= []) << object }
   end
 
   @resources = legitimate_objects.sort_by {|o| o.tags('url').first.text }
-  
+
+  @overall_objects = @objects.find_all {|o| o.has_tag?('overall')}.sort_by {|o| o.tag('overall').text}
+
   erb(:index)
 end
 
