@@ -65,8 +65,8 @@ The rationale here is that you are documenting external services (as represented
     #       <notes></notes>
     #       <updated_at type="datetime">2010-03-09T20:43:29Z</updated_at>
     #       <created_at type="datetime">2010-03-09T20:43:16Z</created_at>
-    #     </interval>
-    #   <intervals>
+    #     </sample>
+    #   <samples>
     #
     # @example_response
     #   <samples type="array">
@@ -79,8 +79,8 @@ The rationale here is that you are documenting external services (as represented
     #       <notes></notes>
     #       <updated_at type="datetime">2010-03-09T20:43:29Z</updated_at>
     #       <created_at type="datetime">2010-03-09T20:43:16Z</created_at>
-    #     </interval>
-    #   <intervals>
+    #     </sample>
+    #   <samples>
     # 
     # @response_field id A unique ID identifying the Sample
     # @response_field name The name of the sample
