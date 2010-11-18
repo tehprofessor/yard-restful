@@ -10,7 +10,7 @@ module YARD::Templates::Helpers
         list.reject! { |item| options[:verifier].call(item).is_a?(FalseClass) }
       end
 
-      reject_module(list)
+      index_objects(list)
     end
 
     def index_objects(list)
