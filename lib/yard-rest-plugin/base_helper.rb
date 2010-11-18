@@ -11,23 +11,31 @@ module YARD::Templates::Helpers
       end
 
       reject_module(list)
-      reject_without_url(list)
-      reject_without_topic(list)
+    end
 
-      list
+    def index_objects(list)
+      res = reject_module(list)
+      res = reject_without_url(res)
+      res = reject_without_topic(res)
+      res = reject_overall(res)
+
+      res
     end
 
     def reject_module(list)
-      list.reject! { |object| [:root, :module].include?(object.type) }
+      list.reject { |object| [:root, :module].include?(object.type) }
     end
 
     def reject_without_url(list)
-      list.reject! { |object| [:class, :method].include?(object.type) and object.tags("url").empty? }
+      list.reject { |object| [:class, :method].include?(object.type) and object.tags("url").empty? }
     end
 
     def reject_without_topic(list)
-      list.reject! { |object| [:class].include?(object.type) and object.tags("topic").empty? }
+      list.reject { |object| [:class].include?(object.type) and object.tags("topic").empty? }
     end
 
+    def reject_overall(list)
+      list.reject { |object| object.has_tag?('overall') }
+    end
   end
 end

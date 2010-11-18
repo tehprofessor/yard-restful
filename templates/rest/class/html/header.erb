@@ -1,9 +1,10 @@
 <div class="service">
   <h1>
-    <span class="minor_heading">Resource: </span>
-    <% if object.tags("url").size <= 1 %>
+    <% if object.tags("url").size == 1 %>
+      <span class="minor_heading">Resource: </span>
       <%= object.tag("url").text %>
-    <% else %>
+    <% elsif object.tags("url").size > 1 %>
+      <span class="minor_heading">Resource: </span>
       <ul>
         <% object.tags("url").each do |url_tag| %>
           <li><%= url_tag.text %></li>
@@ -19,17 +20,20 @@
       <% end %>
     </ul>
   <% end %>
+  <% object.tags("image").each do |image| %>
+    <img src="<%= image.text %>">
+  <% end %>
   <%= yieldall %>
 </div>
 
 
 
 
-  
-  
-    
-  
-    
-  
-  
-  
+
+
+
+
+
+
+
+
