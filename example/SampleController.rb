@@ -11,7 +11,7 @@ class SampleController
   # @url [GET] /samples/index.[format]?[arguments]
   # @url [GET] /samples.[format]?[arguments]
   # 
-  # @argument [String] format Only "xml" is support at this time.
+  # @argument [String] format Only "xml" is supported at this time.
   # @argument [String] name The name of the sample
   # @argument [String] reource The resource that sample belongs to
   # @argument ["@assigned"|"@complete"|"!@complete"] search Return jobs that are assigned, complete, or
@@ -28,15 +28,15 @@ class SampleController
   #       <notes></notes>
   #       <updated_at type="datetime">2010-03-09T20:43:29Z</updated_at>
   #       <created_at type="datetime">2010-03-09T20:43:16Z</created_at>
-  #     </interval>
-  #   <intervals>
+  #     </sample>
+  #   <samples>
   # 
-  # @response_field id A unique ID identifying the Sample
-  # @response_field name The name of the sample
-  # @response_field state The current status of the Sample. Can be complete, uncomplete, etc.
-  # @response_field notes Any notes given for the sample
-  # @response_field updated_at The Date/Time (in ISO8601) that the Sample was last updated
-  # @response_field created_at The Date/Time (in ISO8601) that the Sample was created
+  # @response_field [Integer] id A unique ID identifying the Sample
+  # @response_field [String] name The name of the sample
+  # @response_field [String] state The current status of the Sample. Can be complete, uncomplete, etc.
+  # @response_field [String] notes Any notes given for the sample
+  # @response_field [DateTime] updated_at The Date/Time (in ISO8601) that the Sample was last updated
+  # @response_field [DateTime] created_at The Date/Time (in ISO8601) that the Sample was created
   # 
   def index
   end
@@ -52,7 +52,7 @@ class SampleController
   # 
   # @url [POST] /samples.[format]?[arguments]
   # 
-  # @argument [String] format Only "xml" is support at this time.
+  # @argument [String] format Only "xml" is supported at this time.
   #
   # @example_request
   #   <sample>
@@ -71,12 +71,12 @@ class SampleController
   #     <created_at type="datetime">2010-03-09T20:43:16Z</created_at>
   #   </sample>
   #
-  # @request_field id A unique ID identifying the Sample
-  # @request_field name The name of the sample
-  # @request_field state The current status of the Sample. Can be complete, uncomplete, etc.
-  # @request_field note_attributes Any notes given for the sample that will be created
-  # @request_field updated_at The Date/Time (in ISO8601) that the Sample was last updated
-  # @request_field created_at The Date/Time (in ISO8601) that the Sample was created
+  # @request_field [Integer] id A unique ID identifying the Sample
+  # @request_field [String] name The name of the sample
+  # @request_field [String] state The current status of the Sample. Can be complete, uncomplete, etc.
+  # @request_field [String] note_attributes Any notes given for the sample that will be created
+  # @request_field [DateTime] updated_at The Date/Time (in ISO8601) that the Sample was last updated
+  # @request_field [DateTime] created_at The Date/Time (in ISO8601) that the Sample was created
   #
   # @example_response
   #   <sample>
@@ -94,12 +94,12 @@ class SampleController
   #     <created_at type="datetime">2010-03-09T20:43:16Z</created_at>
   #   </sample>
   # 
-  # @response_field id A unique ID identifying the Sample
-  # @response_field name The name of the sample
-  # @response_field state The current status of the Sample. Can be complete, uncomplete, etc.
-  # @response_field notes Any notes given for the sample
-  # @response_field updated_at The Date/Time (in ISO8601) that the Sample was last updated
-  # @response_field created_at The Date/Time (in ISO8601) that the Sample was created
+  # @response_field [Integer] id A unique ID identifying the Sample
+  # @response_field [String] name The name of the sample
+  # @response_field [String] state The current status of the Sample. Can be complete, uncomplete, etc.
+  # @response_field [String] notes Any notes given for the sample
+  # @response_field [DateTime] updated_at The Date/Time (in ISO8601) that the Sample was last updated
+  # @response_field [DateTime] created_at The Date/Time (in ISO8601) that the Sample was created
   #
   def create
   end
