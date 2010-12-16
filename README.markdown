@@ -1,6 +1,6 @@
 # Yardoc RESTful Web Service Plugin
 
-by VisFleet
+by [vWorkApp](http://www.vworkapp.com)
 
 A plugin for [Yardoc](http://yardoc.org/) that generates documentation for RESTful web services. 
 
