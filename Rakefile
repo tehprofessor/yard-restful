@@ -10,7 +10,7 @@ begin
     gem.email = "aisha.fenton@visfleet.com"
     gem.homepage = "http://github.com/visfleet/yard-rest-plugin"
     gem.authors = ["Aisha Fenton"]
-    gem.add_dependency("yard", '~>0.6.1')
+    gem.add_dependency("yard", '~>0.7.4')
     gem.files = Dir.glob("{lib,example,templates/rest}/**/*.*").concat(["Rakefile"])
     gem.extra_rdoc_files = ['VERSION', 'README.markdown']
   end
