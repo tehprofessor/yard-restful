@@ -6,7 +6,7 @@ require "yard-rest-plugin/base_helper"
 
 YARD::Templates::Engine.register_template_path File.dirname(__FILE__) + '/../templates'
 # TODO: Check ruby version and support ruby 1.9 in future
-YARD::Parser::SourceParser.parser_type = :ruby18
+YARD::Parser::SourceParser.parser_type = :ruby19
 
 # Define custom tags
 YARD::Tags::Library.define_tag("URL for Service", :url)
