@@ -3,7 +3,18 @@ include Helpers::FilterHelper
 
 def init
   options[:objects] = objects = run_verifier(options[:objects])
-  options[:files] = ([options[:readme]] + options[:files]).compact.map { |t| t.to_s }
+  options[:files] = ([options[:readme]] + options[:files]).compact.map do |t|
+    if t.class == YARD::CodeObjects::ExtraFileObject
+      STDERR.puts t
+      STDERR.puts t.class
+      STDERR.puts t.filename
+      t
+    else
+      STDERR.puts t
+      STDERR.puts t.class
+      t.to_s
+    end
+  end
   options[:readme] = options[:files].first
   options[:title] ||= "Documentation by YARD #{YARD::VERSION}"
 
