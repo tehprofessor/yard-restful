@@ -19,6 +19,15 @@ rescue LoadError
   puts "Jeweler (or a dependency) not available. Install it with: gem install jeweler"
 end
 
+
+desc "Rebuild the gem from the gemspec"
+task :rebuild do
+  `rm yard-rest-plugin-0.2.6.gem`
+  `gem uninstall yard-rest-plugin && \
+   gem build yard-rest-plugin.gemspec && \
+   gem install yard-rest-plugin-0.2.6.gem`
+end
+
 namespace :ex do
   desc "Generate example docs"
   task :generate do
