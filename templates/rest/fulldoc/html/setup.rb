@@ -7,8 +7,11 @@ end
 
 def generate_assets
   super
+
+  @object = Registry.root
   generate_resource_list
   generate_topic_list
+  generate_file_list
 end
 
 def generate_topic_list
