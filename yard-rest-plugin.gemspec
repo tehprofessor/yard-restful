@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.version = "0.2.6"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Aisha Fenton"]
+  s.authors = ["Aisha Fenton", "R. Kevin Nelson"]
   s.date = "2012-01-27"
   s.description = "A plugin for Yardoc that produces API documentation for Restful web services. See README.markdown for more details"
   s.email = "aisha.fenton@visfleet.com"
@@ -56,7 +56,7 @@ Gem::Specification.new do |s|
     "templates/rest/tags/html/index.erb",
     "templates/rest/tags/setup.rb"
   ]
-  s.homepage = "http://github.com/visfleet/yard-rest-plugin"
+  s.homepage = "http://github.com/rknLA/yard-rest-plugin"
   s.require_paths = ["lib"]
   s.rubygems_version = "1.8.10"
   s.summary = "A plugin for Yardoc that produces API documentation for Restful web services"
@@ -66,11 +66,14 @@ Gem::Specification.new do |s|
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<yard>, ["~> 0.7.4"])
+      s.add_runtime_dependency(%q<pry>, [">= 0"])
     else
       s.add_dependency(%q<yard>, ["~> 0.7.4"])
+      s.add_dependency(%q<pry>, [">= 0"])
     end
   else
     s.add_dependency(%q<yard>, ["~> 0.7.4"])
+    s.add_dependency(%q<pry>, [">= 0"])
   end
 end
 
