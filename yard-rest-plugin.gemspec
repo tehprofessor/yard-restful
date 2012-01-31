@@ -24,8 +24,6 @@ Gem::Specification.new do |s|
     "templates/rest/class/html/header.erb",
     "templates/rest/class/html/method_details_list.erb",
     "templates/rest/class/html/setup.rb",
-    "templates/rest/docstring/html/setup.rb",
-    "templates/rest/docstring/html/text.erb",
     "templates/rest/fulldoc/html/full_list_resource.erb",
     "templates/rest/fulldoc/html/full_list_topic.erb",
     "templates/rest/fulldoc/html/setup.rb",
