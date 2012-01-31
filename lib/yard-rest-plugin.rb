@@ -2,7 +2,6 @@
 # XXX Is there a better way to deal with this?
 $LOAD_PATH.unshift(File.expand_path(File.dirname(__FILE__)))
 
-require "yard-rest-plugin/base_helper"
 
 YARD::Templates::Engine.register_template_path File.dirname(__FILE__) + '/../templates'
 # TODO: Check ruby version and support ruby 1.9 in future
