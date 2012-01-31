@@ -35,10 +35,8 @@ Gem::Specification.new do |s|
     "templates/rest/layout/html/layout.erb",
     "templates/rest/layout/html/search.erb",
     "templates/rest/layout/html/setup.rb",
-    "templates/rest/module/setup.rb",
     "templates/rest/tags/html/example_request.erb",
     "templates/rest/tags/html/example_response.erb",
-    "templates/rest/tags/html/generic_tag.erb",
     "templates/rest/tags/html/index.erb",
     "templates/rest/tags/setup.rb"
   ]
