@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Aisha Fenton", "R. Kevin Nelson"]
-  s.date = "2012-01-27"
+  s.date = "2012-01-31"
   s.description = "A plugin for Yardoc that produces API documentation for Restful web services. See README.markdown for more details"
   s.email = "aisha.fenton@visfleet.com"
   s.extra_rdoc_files = [
@@ -32,8 +32,6 @@ Gem::Specification.new do |s|
     "templates/rest/fulldoc/html/css/common.css",
     "templates/rest/fulldoc/html/css/full_list.css",
     "templates/rest/fulldoc/html/css/style.css",
-    "templates/rest/fulldoc/html/full_list.erb",
-    "templates/rest/fulldoc/html/full_list_files.erb",
     "templates/rest/fulldoc/html/full_list_resource.erb",
     "templates/rest/fulldoc/html/full_list_topic.erb",
     "templates/rest/fulldoc/html/js/app.js",
@@ -66,14 +64,11 @@ Gem::Specification.new do |s|
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<yard>, ["~> 0.7.4"])
-      s.add_runtime_dependency(%q<pry>, [">= 0"])
     else
       s.add_dependency(%q<yard>, ["~> 0.7.4"])
-      s.add_dependency(%q<pry>, [">= 0"])
     end
   else
     s.add_dependency(%q<yard>, ["~> 0.7.4"])
-    s.add_dependency(%q<pry>, [">= 0"])
   end
 end
 
