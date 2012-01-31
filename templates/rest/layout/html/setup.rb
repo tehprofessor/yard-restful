@@ -1,30 +1,9 @@
 include Helpers::FilterHelper
 
 def init
-  @breadcrumb = []
-
   @page_title = options[:title]
-
-  if @file
-    # this is a fix for an error when using yard-rest-plugin with yard > 0.6.8
-    unless File.file? @file
-      @file = @file.filename if @file.filename
-    end
-    # end fix
-    @contents = File.read_binary(@file)
-    @file = File.basename(@file)
-    sections :layout, [:diskfile]
-  elsif object
-    case object
-    when '_index.html'
-      sections :layout, [:index, [T('class')]]
-    when CodeObjects::Base
-      type = object.root? ? :module : object.type
-      sections :layout, [T(type)]
-    end
-  else
-    sections :layout, [:contents]
-  end
+  super
+  log.debug "Initializing rknLA/yard-rest-plugin layout setup"
 end
 
 def contents
@@ -38,6 +17,9 @@ def menu_lists
 end
 
 def index
+#  @objects_by_letter = {}
+#  objects = Registry.all(:topic, :resource).sort_by { |o| o.tags('url').first.text }
+#  objects = run_verifier(objects)
 
   legitimate_objects = index_objects(@objects).reject {|o| o.root? }
   @topics = {}
