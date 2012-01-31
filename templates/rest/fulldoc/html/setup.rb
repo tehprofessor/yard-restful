@@ -2,7 +2,6 @@ include Helpers::ModuleHelper
 include Helpers::FilterHelper
 
 def init
-
   super
   log.debug "Initializing rknLA/yard-rest-plugin fulldoc setup"
 end
@@ -31,6 +30,4 @@ def generate_resource_list
   @list_type = "resource"
   asset('resource_list.html', erb(:full_list))
 end
-
-
 
