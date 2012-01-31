@@ -4,8 +4,6 @@ include Helpers::FilterHelper
 def init
   super
   log.debug "Initializing rknLA/yard-rest-plugin fulldoc setup"
-  log.debug "Serializer: " + options[:serializer].to_s
-  log.debug "Ancestors: " + self.class.ancestors.to_s
 end
 
 
