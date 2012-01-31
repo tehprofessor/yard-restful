@@ -1,12 +1,6 @@
 include Helpers::ModuleHelper
 include Helpers::FilterHelper
 
-def init
-
-  super
-  log.debug "Initializing rknLA/yard-rest-plugin fulldoc setup"
-end
-
 
 def generate_topic_list
   @items = Registry.all(:topic)

@@ -1,13 +1,5 @@
 include Helpers::FilterHelper
 
-def init
-  #possibly run the verifier again here?
-  super
-end
-
-def contents
-  @contents
-end
 
 def menu_lists
   [ { :type => 'resource', :title => "Resources", :search_title => "Resource List" },
