@@ -1,30 +1,8 @@
 include Helpers::FilterHelper
 
 def init
-  @breadcrumb = []
-
-  @page_title = options[:title]
-
-  if @file
-    # this is a fix for an error when using yard-rest-plugin with yard > 0.6.8
-    unless File.file? @file
-      @file = @file.filename if @file.filename
-    end
-    # end fix
-    @contents = File.read_binary(@file)
-    @file = File.basename(@file)
-    sections :layout, [:diskfile]
-  elsif object
-    case object
-    when '_index.html'
-      sections :layout, [:index, [T('class')]]
-    when CodeObjects::Base
-      type = object.root? ? :module : object.type
-      sections :layout, [T(type)]
-    end
-  else
-    sections :layout, [:contents]
-  end
+  #possibly run the verifier again here?
+  super
 end
 
 def contents
