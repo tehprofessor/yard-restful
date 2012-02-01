@@ -1,19 +1,20 @@
 # Yardoc RESTful Web Service Plugin
 
-by [vWorkApp](http://www.vworkapp.com)
+originally by [vWorkApp](http://www.vworkapp.com)
+rewritten for 0.3.0 by [rknLA](http://github.com/rknLA) with substantial help from [lsegal](http://gnuu.org/)
 
 A plugin for [Yardoc](http://yardoc.org/) that generates documentation for RESTful web services. 
 
 ## Install
-    sudo gem install yard-rest-plugin
+    sudo gem install yard-rest
 
 It also requires the Jeweler gem if you plan to use the rake build tasks.
 
 ## Generating Docs
 
-When using yardoc you ask it to use the "rest" template (the -t option). For example: 
+When using yardoc you ask it to use the "rest" plugin (the --plugin option). For example: 
 
-    yardoc '*.rb' -t rest --title "Our App's API"
+    yardoc '*.rb' --plugin rest --title "Our App's API"
 
 ## Writing Comments
 
@@ -23,12 +24,16 @@ In addition to starting your comment with the normal RDoc description. The follo
 
 - @topic topic. Specifies the topic to categorise a **class** (not a method) under.
 
-- @argument [type] name description. Specifies an argument that is passed to the service. You can specify as 
-    many of these as required
+- @required_argument [type] name description. Specifies an argument that must be passed to the service. You can specify as 
+    many of these as you need.
 
-- @example_request example. An example of the request that is send to the service
+- @optional_argument [type] name description. Specifies an optional argument that may be passed to the service. You can specify as 
+    many of these as you need. 
 
-- @request_field name description. Further specifies the fields that are send within the request
+- @example_request example. An example of the request that is send to the service.
+
+- @request_field name description. Further specifies the fields that are send within the request.  This is useful when the service 
+    accepts only one argument that has many fields, like a JSON or XML string.
 
 - @example_response example. An example of the response that is returned from the service
 
@@ -48,10 +53,10 @@ The rationale here is that you are documenting external services (as represented
     # @url [GET] /samples.[format]?[arguments]
     # @url [GET] /samples/index.[format]?[arguments]
     # 
-    # @argument [String] format Only "xml" is support at this time.
-    # @argument [String] name The name of the sample
-    # @argument [String] reource The resource that sample belongs to
-    # @argument ["@assigned"|"@complete"|"!@complete"] search Return samples that are assigned, complete, or
+    # @required_argument [String] format Only "xml" is support at this time.
+    # @required_argument [String] name The name of the sample
+    # @required_argument [String] resource The resource that sample belongs to
+    # @optional_argument ["@assigned"|"@complete"|"!@complete"] search Return samples that are assigned, complete, or
     #   uncomplete.
     #
     # @example_response
@@ -83,7 +88,7 @@ The rationale here is that you are documenting external services (as represented
     # 
     # @url [POST] /samples.[format]?[arguments]
     # 
-    # @argument [String] format Only "xml" is support at this time.
+    # @required_argument [String] format Only "xml" is support at this time.
     #
     # @example_request
     #   <sample>
@@ -137,9 +142,14 @@ The rationale here is that you are documenting external services (as represented
 
 ## Development
 
+As always, you can see what tasks are available by running:
+    
+    rake -T
+
 You can run the template locally over the included sample code by using the following rake tasks:
     
     rake ex:clean
     rake ex:generate
+
 
 
