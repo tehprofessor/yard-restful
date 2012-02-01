@@ -5,6 +5,10 @@ def init
   super
 end
 
+def javascripts
+  super + %w(js/rest_plugin.js)
+end
+
 def menu_lists
   [ { :type => 'resource', :title => "Resources", :search_title => "Resource List" },
     { :type => 'topic', :title => "Topics", :search_title => "Topic List" },
@@ -28,7 +32,4 @@ def index
   erb(:index)
 end
 
-def javascripts
-  super + %w(js/rest_plugin.js)
-end
 
