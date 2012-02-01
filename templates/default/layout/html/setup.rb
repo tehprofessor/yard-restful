@@ -3,7 +3,6 @@ include Helpers::FilterHelper
 def init
   @page_title = options[:title]
   super
-  log.debug "Initializing rknLA/yard-rest-plugin layout setup"
 end
 
 def menu_lists

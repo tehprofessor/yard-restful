@@ -4,6 +4,5 @@ end
 
 def method_details_list
   @meths = object.meths(:inherited => false, :included => false) 
-  @meths = run_verifier(@meths)
   erb(:method_details_list)
 end
