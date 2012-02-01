@@ -16,6 +16,21 @@ When using yardoc you ask it to use the "rest" plugin (the --plugin option). For
 
     yardoc '*.rb' --plugin rest --title "Our App's API"
 
+## Gemfile functionality
+
+You may also include yard-rest in your gemfile using:
+
+    gem 'yard-rest'
+
+You may need to include the following dependencies as well:
+
+    gem 'redcarpet'
+    gem 'yard', '~>0.7.4'
+
+If you include yard-rest in your gemfile, you should generate docs using bundle exec:
+
+    bundle exec yardoc '*.rb' --plugin rest --title "Our App's API"
+
 ## Writing Comments
 
 In addition to starting your comment with the normal RDoc description. The following tags are provided:

@@ -1,6 +1,7 @@
 def init
   super
   sections :index, [:argument,
+                    :optional_argument,
                     :example_request,
                     :request_field,
                     :example_response,
@@ -19,6 +20,10 @@ end
 
 def argument
   generic_tag :argument, :no_types => false
+end
+
+def optional_argument
+  generic_tag :optional_argument, :no_types => false
 end
 
 def header

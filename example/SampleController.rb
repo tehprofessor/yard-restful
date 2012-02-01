@@ -14,7 +14,7 @@ class SampleController
   # @argument [String] format Only "xml" is supported at this time.
   # @argument [String] name The name of the sample
   # @argument [String] reource The resource that sample belongs to
-  # @argument ["@assigned"|"@complete"|"!@complete"] search Return jobs that are assigned, complete, or
+  # @optional_argument ["@assigned"|"@complete"|"!@complete"] search Return jobs that are assigned, complete, or
   #   uncomplete.
   # 
   # @example_response
