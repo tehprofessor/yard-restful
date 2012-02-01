@@ -31,7 +31,7 @@ end
 namespace :ex do
   desc "Generate example docs"
   task :generate do
-    `yardoc 'example/*.rb' -t rest --backtrace -p ./templates -e ./lib/yard-rest-plugin.rb -r example/README.markdown --title 'Sample API'`
+    `yardoc 'example/*.rb' --backtrace -p ./templates -e ./lib/yard-rest.rb -r example/README.markdown --title 'Sample API'`
   end
 
   desc "Clean example docs"
