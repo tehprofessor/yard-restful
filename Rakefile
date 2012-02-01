@@ -4,7 +4,7 @@ require 'rake'
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
-    gem.name = "yard-rest"
+    gem.name = "yard-rest-plugin"
     gem.summary = %Q{A plugin for Yardoc that produces API documentation for Restful web services}
     gem.description = %Q{A plugin for Yardoc that produces API documentation for Restful web services. See README.markdown for more details}
     gem.email = "aisha.fenton@visfleet.com"
@@ -22,16 +22,16 @@ end
 
 desc "Rebuild the gem from the gemspec"
 task :rebuild do
-  `rm yard-rest-0.2.6.gem`
-  `gem uninstall yard-rest&& \
-   gem build yard-rest.gemspec && \
-   gem install yard-rest-0.2.6.gem`
+  `rm yard-rest-plugin-0.2.6.gem`
+  `gem uninstall yard-rest-plugin&& \
+   gem build yard-rest-plugin.gemspec && \
+   gem install yard-rest-plugin-0.2.6.gem`
 end
 
 namespace :ex do
   desc "Generate example docs"
   task :generate do
-    `yardoc 'example/*.rb' --backtrace -e ./lib/yard-rest.rb -r example/README.markdown --title 'Sample API'`
+    `yardoc 'example/*.rb' --backtrace -e ./lib/yard-rest-plugin.rb -r example/README.markdown --title 'Sample API'`
   end
 
   desc "Clean example docs"
