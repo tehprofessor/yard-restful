@@ -1,0 +1,8 @@
+<% if object.tags(:url).size > 0 %>
+<h3>Url:</h3>
+<ul id="<%= anchor_for(object) %>">  
+  <% object.tags(:url).each do |url| %>
+  <li><%= url.text %></li>
+  <% end %>
+</ul>
+<% end %>
