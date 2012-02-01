@@ -28,3 +28,7 @@ def index
   erb(:index)
 end
 
+def javascripts
+  super + %w(js/rest_plugin.js)
+end
+
