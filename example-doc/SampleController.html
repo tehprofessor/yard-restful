@@ -1,0 +1,557 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
+<title>Sample API</title>
+<link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '';
+  if (relpath != '') relpath += '/';
+</script>
+<script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="search">
+  <!-- <a id="topic_list_link" href="#">Topic List</a> -->
+  <a id="resource_list_link" href="#">Resource List</a>
+  <a id="file_list_link" href="#">File List</a>
+</div>
+
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><div class="service">
+  <h1>
+    
+      <span class="minor_heading">Resource: </span>
+      /sample
+    
+  </h1>
+  
+    <h3 class="topic">Topics:</h3>
+    <ul class="box">
+      
+        <li>Sample</li>
+      
+    </ul>
+  
+  
+  
+<p>The Sample sevices let you list, create, update, and delete Samples from
+our application.</p>
+
+<div class="tags">
+  
+</div>
+  <div id="Services" class="method_details_list">
+    <h2>Actions</h2>
+    
+      <div class="method_details first">
+  <ul class="signature first" id="index-instance_method">
+  <li>
+  
+    - (<tt>Object</tt>) <strong>index</strong> 
+  
+
+  
+  </li>
+</ul>
+
+<h3>Url:</h3>
+<ul id="index-instance_method">  
+  
+  <li>[GET] /samples/index.[format]?[arguments]</li>
+  
+  <li>[GET] /samples.[format]?[arguments]</li>
+  
+</ul>
+
+<p>Retuns all samples, as XML, for the current user that match the given
+parameters.</p>
+
+<div class="tags">
+  <h3>Arguments:</h3>
+<ul class="argument">
+  
+    <li>
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <span class='name'>format</span>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Only "xml" is supported at this time.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <span class='name'>name</span>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The name of the sample</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <span class='name'>reource</span>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The resource that sample belongs to</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='type'>(<tt>"@assigned"|"@complete"|"!@complete"</tt>)</span>
+      
+      
+        <span class='name'>search</span>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Return jobs that are assigned, complete, or uncomplete.</p>
+</div>
+      
+    </li>
+  
+</ul>
+  <div class="examples">
+    <h3>Example Response:</h3>
+    
+      <h4><div class='inline'></div></h4>
+      <pre class="example code">&lt;samples type=&quot;array&quot;&gt;
+  &lt;sample&gt;
+    &lt;id&gt;961&lt;/id&gt;
+    &lt;name&gt;My Sample&lt;/name&gt;
+    &lt;state&gt;complete&lt;/state&gt;
+    &lt;last_unassigned_user_id type=&quot;integer&quot;&gt;&lt;/last_unassigned_user_id&gt;
+    &lt;resource_id type=&quot;integer&quot;&gt;127&lt;/resource_id&gt;
+    &lt;notes&gt;&lt;/notes&gt;
+    &lt;updated_at type=&quot;datetime&quot;&gt;2010-03-09T20:43:29Z&lt;/updated_at&gt;
+    &lt;created_at type=&quot;datetime&quot;&gt;2010-03-09T20:43:16Z&lt;/created_at&gt;
+  &lt;/sample&gt;
+&lt;samples&gt;</pre>
+    
+  </div>
+<h3>Response Fields:</h3>
+<ul class="response_field">
+  
+    <li>
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+        <span class='name'>id</span>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>A unique ID identifying the Sample</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <span class='name'>name</span>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The name of the sample</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <span class='name'>state</span>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The current status of the??Sample. Can be complete, uncomplete, etc.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <span class='name'>notes</span>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Any notes given for the sample</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='type'>(<tt>DateTime</tt>)</span>
+      
+      
+        <span class='name'>updated_at</span>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The Date/Time (in ISO8601) that the Sample was last updated</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='type'>(<tt>DateTime</tt>)</span>
+      
+      
+        <span class='name'>created_at</span>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The Date/Time (in ISO8601) that the Sample was created</p>
+</div>
+      
+    </li>
+  
+</ul>
+</div>
+</div>
+    
+      <div class="method_details ">
+  <ul class="signature " id="create-instance_method">
+  <li>
+  
+    - (<tt>Object</tt>) <strong>create</strong> 
+  
+
+  
+  </li>
+</ul>
+
+<h3>Url:</h3>
+<ul id="create-instance_method">  
+  
+  <li>[POST] /samples.[format]?[arguments]</li>
+  
+</ul>
+
+<p>Creates a new sample</p>
+
+<div class="tags">
+  <h3>Arguments:</h3>
+<ul class="argument">
+  
+    <li>
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <span class='name'>format</span>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Only "xml" is supported at this time.</p>
+</div>
+      
+    </li>
+  
+</ul>
+  <div class="examples">
+    <h3>Example Request:</h3>
+    
+      <h4><div class='inline'></div></h4>
+      <pre class="example code">&lt;sample&gt;
+  &lt;id&gt;961&lt;/id&gt;
+  &lt;name&gt;My Sample&lt;/name&gt;
+  &lt;state&gt;complete&lt;/state&gt;
+  &lt;last_unassigned_user_id type=&quot;integer&quot;&gt;&lt;/last_unassigned_user_id&gt;
+  &lt;resource_id type=&quot;integer&quot;&gt;127&lt;/resource_id&gt;
+  &lt;note_attributes type=&quot;array&quot;&gt;
+    &lt;note&gt;
+      &lt;id&gt;new_123&lt;/id&gt;
+      &lt;text&gt;Note One&lt;/note&gt;
+    &lt;/note&gt;
+  &lt;/note_attributes&gt;
+  &lt;updated_at type=&quot;datetime&quot;&gt;2010-03-09T20:43:29Z&lt;/updated_at&gt;
+  &lt;created_at type=&quot;datetime&quot;&gt;2010-03-09T20:43:16Z&lt;/created_at&gt;
+&lt;/sample&gt;</pre>
+    
+  </div>
+<h3>Request Fields:</h3>
+<ul class="request_field">
+  
+    <li>
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+        <span class='name'>id</span>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>A unique ID identifying the Sample</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <span class='name'>name</span>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The name of the sample</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <span class='name'>state</span>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The current status of the??Sample. Can be complete, uncomplete, etc.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <span class='name'>note_attributes</span>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Any notes given for the sample that will be created</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='type'>(<tt>DateTime</tt>)</span>
+      
+      
+        <span class='name'>updated_at</span>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The Date/Time (in ISO8601) that the Sample was last updated</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='type'>(<tt>DateTime</tt>)</span>
+      
+      
+        <span class='name'>created_at</span>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The Date/Time (in ISO8601) that the Sample was created</p>
+</div>
+      
+    </li>
+  
+</ul>
+  <div class="examples">
+    <h3>Example Response:</h3>
+    
+      <h4><div class='inline'></div></h4>
+      <pre class="example code">&lt;sample&gt;
+  &lt;id&gt;961&lt;/id&gt;
+  &lt;name&gt;My Sample&lt;/name&gt;
+  &lt;state&gt;complete&lt;/state&gt;
+  &lt;last_unassigned_user_id type=&quot;integer&quot;&gt;&lt;/last_unassigned_user_id&gt;
+  &lt;resource_id type=&quot;integer&quot;&gt;127&lt;/resource_id&gt;
+  &lt;notes type=&quot;array&quot;&gt;
+    &lt;note&gt;
+      &lt;text&gt;Note One&lt;/note&gt;
+    &lt;/note&gt;
+  &lt;/notes&gt;
+  &lt;updated_at type=&quot;datetime&quot;&gt;2010-03-09T20:43:29Z&lt;/updated_at&gt;
+  &lt;created_at type=&quot;datetime&quot;&gt;2010-03-09T20:43:16Z&lt;/created_at&gt;
+&lt;/sample&gt;</pre>
+    
+  </div>
+<h3>Response Fields:</h3>
+<ul class="response_field">
+  
+    <li>
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+        <span class='name'>id</span>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>A unique ID identifying the Sample</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <span class='name'>name</span>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The name of the sample</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <span class='name'>state</span>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The current status of the??Sample. Can be complete, uncomplete, etc.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <span class='name'>notes</span>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Any notes given for the sample</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='type'>(<tt>DateTime</tt>)</span>
+      
+      
+        <span class='name'>updated_at</span>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The Date/Time (in ISO8601) that the Sample was last updated</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='type'>(<tt>DateTime</tt>)</span>
+      
+      
+        <span class='name'>created_at</span>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The Date/Time (in ISO8601) that the Sample was created</p>
+</div>
+      
+    </li>
+  
+</ul>
+</div>
+</div>
+    
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+    
+    <div id="footer">
+  Generated on Tue Jan 31 17:25:16 2012 with ruby-1.9.3
+</div>
+
+  </body>
+</html>
