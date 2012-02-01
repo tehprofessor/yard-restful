@@ -2,10 +2,8 @@ include Helpers::ModuleHelper
 include Helpers::FilterHelper
 
 def init
+  options[:verifier].add_expressions(['@url', '@topic', '!@overall'])
   super
-  log.debug "Initializing rknLA/yard-rest-plugin fulldoc setup"
-  log.debug "Serializer: " + options[:serializer].to_s
-  log.debug "Ancestors: " + self.class.ancestors.to_s
 end
 
 
