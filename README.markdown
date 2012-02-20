@@ -14,7 +14,7 @@ It also requires the Jeweler gem if you plan to use the rake build tasks.
 
 When using yardoc you ask it to use the "rest" plugin (the --plugin option). For example: 
 
-    yardoc '*.rb' --plugin rest --title "Our App's API"
+    yardoc --plugin rest --title "Our App's API"
 
 ## Gemfile functionality
 
@@ -29,7 +29,7 @@ You may need to include the following dependencies as well:
 
 If you include yard-rest in your gemfile, you should generate docs using bundle exec:
 
-    bundle exec yardoc '*.rb' --plugin rest --title "Our App's API"
+    bundle exec yardoc --plugin rest --title "Our App's API"
 
 ## Writing Comments
 
