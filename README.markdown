@@ -60,6 +60,8 @@ This plugin only documents **classes** and **methods** with **@url** tags. It do
 
 The rationale here is that you are documenting external services (as represented by controllers and methods), and not internal code.
 
+Both controller *and* methods must have @url and @topic tags to be included in documentation.
+
 ## Example:
 
     ##
