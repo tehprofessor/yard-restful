@@ -45,6 +45,8 @@ In addition to starting your comment with the normal RDoc description. The follo
 - @optional_argument [type] name description. Specifies an optional argument that may be passed to the service. You can specify as 
     many of these as you need. 
 
+- @key_for hash_name [type] name description. Specifies element of a hash argument.
+
 - @example_request example. An example of the request that is send to the service.
 
 - @request_field name description. Further specifies the fields that are send within the request.  This is useful when the service 
