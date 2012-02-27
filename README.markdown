@@ -54,6 +54,12 @@ In addition to starting your comment with the normal RDoc description. The follo
 
 - @response_field name description. Further specifies the fields that are returned within the response
 
+- @response_code
+
+- @header
+
+- @image
+
 ## Ignored Documentation
 
 This plugin only documents **classes** and **methods** with **@url** tags. It does not support module documentation.
@@ -62,11 +68,13 @@ The rationale here is that you are documenting external services (as represented
 
 Both controller *and* methods must have @url and @topic tags to be included in documentation.
 
+Methods with the @overall tag will be ignored.
+
 ## Example:
 
     ##
     # Retuns all samples, as XML, for the current user that match the given parameters.
-    # 
+    #
     # @url [GET] /samples.[format]?[arguments]
     # @url [GET] /samples/index.[format]?[arguments]
     # 
