@@ -47,6 +47,8 @@ In addition to starting your comment with the normal RDoc description. The follo
 
 - @key_for hash_name [type] name description. Specifies element of a hash argument.
 
+- @value_for argument_name name description. Specifies valid value of an argument.
+
 - @example_request example. An example of the request that is send to the service.
 
 - @request_field name description. Further specifies the fields that are send within the request.  This is useful when the service 
