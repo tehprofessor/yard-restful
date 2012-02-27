@@ -3,6 +3,7 @@ def init
   sections.push(:index,[:argument,
                         :optional_argument,
                         :key_for,
+                        :value_for,
                         :example_request,
                         :request_field,
                         :example_response,
