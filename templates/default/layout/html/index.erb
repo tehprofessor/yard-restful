@@ -2,7 +2,7 @@
   <h1 class="noborder title"><%= options[:title] %></h1>
 
   <% if @readme %>
-	<%= htmlify(@readme.contents) %>
+	<%= htmlify(@readme.contents, :markdown) %>
   <% end %>
 
   <div class="clear"></div>
