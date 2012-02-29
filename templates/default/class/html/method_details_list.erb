@@ -1,8 +1,24 @@
 <% unless @meths.empty? %>
   <div id="Services" class="method_details_list">
-    <h2>Actions</h2>
+    <h2><%= object.name.to_s.gsub(/Controller/,"") %></h2>
     <% @meths.each_with_index do |meth, i| %>
-      <%= yieldall :object => meth, :index => i %>
+		<p><%= meth.docstring %></p>
+		<h3 class="signature"><strong><%= meth.tag(:resource).text %></strong> [<%= meth.tag(:action).text %>]</h3>
+		
+		<% if meth.tags(:required).size %>
+			<h4>Required Parameters:</h4>
+			<% meth.tags(:required).each do |required| %>
+				<pre class="example_code required">required.text</pre>
+			<% end %>
+		<% end %>
+		
+		<% if meth.tags(:optional).size %>
+			<h4>Optional Parameters:</h4>
+			<% meth.tags(:optional).each do |optional| %>
+				<pre class="example_code">optional.text</pre>
+			<% end %>
+		<% end %>
+		
     <% end %>
   </div>
 <% end %>

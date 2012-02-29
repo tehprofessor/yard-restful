@@ -2,7 +2,11 @@ include Helpers::FilterHelper
 
 def init
   @page_title = options[:title]
-  super
+  if object != "_index.html" and object.name == :root
+    sections :layout, [:index]
+  else
+    super
+  end
 end
 
 def javascripts
@@ -10,26 +14,13 @@ def javascripts
 end
 
 def menu_lists
-  [ { :type => 'resource', :title => "Resources", :search_title => "Resource List" },
+  [ { :type => 'resource', :title => "Resources", :search_title => "List of Resources" },
     { :type => 'topic', :title => "Topics", :search_title => "Topic List" },
     { :type => 'file', :title => "Files", :search_title => "File List" } ]
 end
 
-
 def index
-
-  legitimate_objects = @objects.select { |o| o.has_tag?('url') }
-  @topics = {}
-
-  legitimate_objects.each do |object|
-    object.tags('topic').each { |topic| (@topics[topic.text] ||= []) << object }
-  end
-
-  @resources = legitimate_objects.sort_by {|o| o.tags('url').first.text }
-
-  @overall_objects = @objects.find_all {|o| o.has_tag?('overall')}.sort_by {|o| o.tag('overall').text}
-
+  path_to_readme = "./doc/README_FOR_API"
+  @readme = YARD::CodeObjects::ExtraFileObject.new(path_to_readme) if File.exists?(path_to_readme)
   erb(:index)
 end
-
-
