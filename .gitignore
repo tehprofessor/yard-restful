@@ -1,2 +1,4 @@
 .yardoc/
 .redcar/
+.DS_Store
+.project

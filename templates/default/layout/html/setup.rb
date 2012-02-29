@@ -2,7 +2,9 @@ include Helpers::FilterHelper
 
 def init
   @page_title = options[:title]
-  if object != "_index.html" and object.name == :root
+  if object == "_index.html"
+    # we dont need the _index
+  elsif object.name == :root
     sections :layout, [:index]
   else
     super
