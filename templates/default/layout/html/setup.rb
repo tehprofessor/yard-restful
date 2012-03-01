@@ -3,7 +3,7 @@ include Helpers::FilterHelper
 def init
   @page_title = options[:title]
   if object == "_index.html"
-    # we dont need the _index
+    
   elsif object.name == :root
     sections :layout, [:index]
   else
@@ -24,5 +24,6 @@ end
 def index
   path_to_readme = "./doc/README_FOR_API"
   @readme = YARD::CodeObjects::ExtraFileObject.new(path_to_readme) if File.exists?(path_to_readme)
+  @resources = index_objects(@objects)
   erb(:index)
 end
