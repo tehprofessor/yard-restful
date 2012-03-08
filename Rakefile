@@ -7,9 +7,9 @@ begin
     gem.name = "yard-rest"
     gem.summary = %Q{A plugin for Yardoc that produces API documentation for Restful web services}
     gem.description = %Q{A plugin for Yardoc that produces API documentation for Restful web services. See README.markdown for more details}
-    gem.email = 'kevin@rkn.la'
-    gem.homepage = "http://github.com/rknLA/yard-rest-plugin"
-    gem.authors = ['R. Kevin Nelson', 'Aisha Fenton']
+    gem.email = ''
+    gem.homepage = "https://github.com/spape/yard-rest-plugin"
+    gem.authors = ['R. Kevin Nelson', 'Aisha Fenton', 'Sebastian Pape']
     gem.add_dependency("yard", '~>0.7.4')
     gem.files = Dir.glob("{lib,example,templates/rest}/**/*.*").concat(["Rakefile"])
     gem.extra_rdoc_files = ['VERSION', 'README.markdown']
@@ -18,7 +18,6 @@ begin
 rescue LoadError
   puts "Jeweler (or a dependency) not available. Install it with: gem install jeweler"
 end
-
 
 desc "Rebuild the gem from the gemspec"
 task :rebuild do
