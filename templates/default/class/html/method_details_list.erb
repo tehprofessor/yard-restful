@@ -1,8 +1,6 @@
 <% unless @meths.empty? %>
   <div id="Services" class="method_details_list">
     <h2><%= object.name.to_s.gsub(/Controller/,"") %></h2>
-	<% require 'pry' %>
-	<p><%= binding.pry %></p>
 
     <% @meths.each_with_index do |meth, i| %>
 		<h3 class="resource_url"><strong><%= meth.tag(:resource).text %></strong> [<%= meth.tag(:action).text %>]</h3>
