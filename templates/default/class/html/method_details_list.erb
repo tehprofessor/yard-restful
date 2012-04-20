@@ -1,58 +1,79 @@
+<% require 'pry' %>
 <% unless @meths.empty? %>
   <div id="Services" class="method_details_list">
-    <h2><%= object.name.to_s.gsub(/Controller/,"") %></h2>
-
     <% @meths.each_with_index do |meth, i| %>
-		<h3 class="resource_url"><strong><%= meth.tag(:resource).text %></strong> [<%= meth.tag(:action).text %>]</h3>
-		<p><%= meth.docstring %></p>
-		
-		<div class="parameters">
-			<div class="required">
+		<div class="method">
+			<p class="method_desc"><%= meth.docstring %></p>
+			<h3 class="resource_url"><strong><%= meth.tag(:resource).text %></strong> [<%= meth.tag(:action).text %>]</h3>
+
+			<div class="parameters">	
 				<% if meth.tags(:required).size %>
-					<h4>Required Parameters</h4>
-					<% meth.tags(:required).each do |required| %>
-					<pre class="example_code required">required.text</pre>
-					<% end %>
-				<% end %>
-			</div>
-		
-			<div class="optional">
-				<% if meth.tags(:optional).size %>
-					<h4>Optional Parameters</h4>
-					<% meth.tags(:optional).each do |optional| %>
-						<pre class="example_code">optional.text</pre>
+					<div class="required">
+						<h4>Required Parameters</h4>
+						<% meth.tags(:required).each do |required| %>
+							<ul>
+								<li>
+									<span class="name"><%= required.name%></span>
+									<span class="type"><%= required.types.join%></span>
+									<span class="text"><%= required.text%></span>
+								</li>
+							</ul>
 						<% end %>
+					</div>
 				<% end %>
-			</div>
-		<div class="clear"></div>
-		</div>
-		
-		<div class="request_response">
-			<div class="requests">
-				<% if meth.tags(:required).size %>
-					<h4>Required Parameters</h4>
-					<% meth.tags(:required).each do |required| %>
-					<pre class="example_code required">required.text</pre>
-					<% end %>
-				<% end %>
-			</div>
-			
-			<div class="responses">
+
 				<% if meth.tags(:optional).size %>
-					<h4>Optional Parameters</h4>
-					<% meth.tags(:optional).each do |optional| %>
-						<pre class="example_code">optional.text</pre>
+					<div class="optional">
+						<h4>Optional Parameters</h4>
+						<% meth.tags(:optional).each do |optional| %>
+							<ul>
+								<li>
+									<span class="name"><%= optional.name%></span>
+									<span class="type"><%= optional.types.join%></span>
+									<span class="text"><%= optional.text%></span>
+								</li>
+							</ul>
 						<% end %>
+					</div>
 				<% end %>
-			</div>
-		<div class="clear"></div>
-		</div>
-		
-		<div class="response_fields">
+			</div><!-- parameters -->
 			
-		<div class="clear"></div>
-		</div>
-		
+			<% if meth.tags(:response_field).size %>
+				<div class="response_fields">
+					<h4>Response Fields</h4>
+					<% meth.tags(:response_field).each do |response_field| %>
+						<ul>
+							<li>
+								<span class="name"><%= response_field.name%></span>
+								<span class="type"><%= response_field.types.join%></span>
+								<span class="text"><%= response_field.text%></span>
+							</li>
+						</ul>
+					<% end %>
+				</div>
+			<% end %>
+			
+			<% if meth.tags(:example_request).size %>
+				<div class="examples">
+					<h4>Examples</h4>
+					<% meth.tags(:example_request).each_with_index do |example_request, i| %>
+						<div class="example">
+							<% example_response = meth.tags(:example_response)[i] %>
+							<span class="description"><%= example_request.text.gsub(/{.*}/, "")%></span>
+							<span class="hash request">
+								<strong class="type">Request</strong>
+								<%= example_request.text.match(/{.*}/).to_s%>
+							</span>
+							<span class="hash response">
+								<strong class="type">Response</strong>
+								<%= example_response.text.match(/{.*}/).to_s%>
+							</span>
+							<span class="description"><%= example_response.text.gsub(/{.*}/, "")%></span>
+						</div>
+					<% end %>
+				</div>
+			<% end %>
+		</div>	
     <% end %>
   </div>
 <% end %>
