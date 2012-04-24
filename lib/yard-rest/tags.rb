@@ -6,9 +6,11 @@ YARD::Tags::Library.define_tag("Required Arguments",            :required,      
 YARD::Tags::Library.define_tag("Optional Arguments",            :optional,          :with_types_and_name)
 
 YARD::Tags::Library.define_tag("Example Request",               :example_request)
+YARD::Tags::Library.define_tag("Example Request Description",   :example_request_description)
 YARD::Tags::Library.define_tag("Request Fields",                :request_field,     :with_types_and_name)
 
 YARD::Tags::Library.define_tag("Example Response",              :example_response)
+YARD::Tags::Library.define_tag("Example Response Description",  :example_response_description)
 YARD::Tags::Library.define_tag("Response Fields",               :response_field,    :with_types_and_name)
 
 YARD::Tags::Library.define_tag("Headers",                       :header, :with_name)
