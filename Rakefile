@@ -6,7 +6,7 @@ begin
   Jeweler::Tasks.new do |gem|
     gem.name = "yard-rest"
     gem.summary = %Q{A customized plugin for Yardoc that produces API documentation for Restful web services}
-    gem.description = %Q{A plugin for Yardoc that produces API documentation for Restful web services. See README.markdown for more details}
+    gem.description = %Q{A customized plugin for Yardoc that produces API documentation for Restful web services}
     gem.email = ''
     gem.homepage = "https://github.com/spape/yard-rest-plugin"
     gem.authors = ['R. Kevin Nelson', 'Aisha Fenton', 'Sebastian Pape']
