@@ -13,7 +13,7 @@ It also requires the Jeweler gem if you plan to use the rake build tasks.
 
 ## Demo
 
-Visit [MAdeK-Api-Documetnation](http://medienarchiv.zhdk.ch/api) for a demonstration.
+Visit [MAdeK-Api-Documetnation](http://medienarchiv.zhdk.ch/api) for a demonstration. Or visit ROR project [MAdeK](http://github.com/zhdk/madek) on github to see how we document our api.
 
 ## Generating Docs
 
