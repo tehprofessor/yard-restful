@@ -11,7 +11,7 @@ begin
     gem.homepage = "https://github.com/spape/yard-rest-plugin"
     gem.authors = ['R. Kevin Nelson', 'Aisha Fenton', 'Sebastian Pape']
     gem.add_dependency("yard", '~>0.7.4')
-    gem.files = Dir.glob("{lib,example,templates/rest}/**/*").concat(["Rakefile"])
+    gem.files = Dir.glob("{lib,example,templates}/**/*").concat(["Rakefile"])
     gem.extra_rdoc_files = ['VERSION', 'README.markdown']
   end
   Jeweler::GemcutterTasks.new

@@ -21,6 +21,12 @@ When using yardoc you ask it to use the "rest" plugin (the --plugin option). For
 
     yardoc --plugin rest --title "Our App's API" --readme "./doc/README_FOR_API"
 
+## Publish API
+
+When you want to make the API-documentation available for public use the following command:
+
+    bundle exec yardoc --plugin rest --title 'Our App's API' --output-dir ./public/api
+
 ## Gemfile functionality
 
 You may also include yard-rest in your gemfile using:
