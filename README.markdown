@@ -11,6 +11,10 @@ A plugin for [Yardoc](http://yardoc.org/) that generates documentation for RESTf
 
 It also requires the Jeweler gem if you plan to use the rake build tasks.
 
+## Demo
+
+Visit [MAdeK-Api-Documetnation](http://medienarchiv.zhdk.ch/api) for a demonstration.
+
 ## Generating Docs
 
 When using yardoc you ask it to use the "rest" plugin (the --plugin option). For example: 
