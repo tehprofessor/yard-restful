@@ -2,6 +2,7 @@
 
 originally by [vWorkApp](http://www.vworkapp.com)
 rewritten for 0.3.0 by [rknLA](http://github.com/rknLA) with substantial help from [lsegal](http://gnuu.org/)
+customized by [spape](http://github.com/spape) for the [MAdeK](http://github.com/zhdk/madek) API-Documentation
 
 A plugin for [Yardoc](http://yardoc.org/) that generates documentation for RESTful web services. 
 
@@ -14,7 +15,7 @@ It also requires the Jeweler gem if you plan to use the rake build tasks.
 
 When using yardoc you ask it to use the "rest" plugin (the --plugin option). For example: 
 
-    yardoc --plugin rest --title "Our App's API"
+    yardoc --plugin rest --title "Our App's API" --readme "./doc/README_FOR_API"
 
 ## Gemfile functionality
 
@@ -29,145 +30,125 @@ You may need to include the following dependencies as well:
 
 If you include yard-rest in your gemfile, you should generate docs using bundle exec:
 
-    bundle exec yardoc --plugin rest --title "Our App's API"
+    bundle exec yardoc --plugin rest --title "Our App's API" --readme "./doc/README_FOR_API"
 
 ## Writing Comments
 
 In addition to starting your comment with the normal RDoc description. The following tags are provided:
 
-- @url url. Specifies the URL that the service is accessed from. This tag is compulsory, only **classes** and **methods** that include this in their comments are included.
+- @resource resource. Specifies the resource (URL) that the service is accessed from. This tag is compulsory, only **classes** and **methods** that include this in their comments are included in the API documentation.
 
-- @topic topic. Specifies the topic to categorise a **class** (not a method) under.
+- @action action. Specifies the http action (GET, POST, PUT etc.).
 
-- @required_argument [type] name description. Specifies an argument that must be passed to the service. You can specify as 
-    many of these as you need.
+- @required [type] name description. Specifies an argument that must be passed to the service. You can specify as many of these as you need.
 
-- @optional_argument [type] name description. Specifies an optional argument that may be passed to the service. You can specify as 
-    many of these as you need. 
+- @optional [type] name description. Specifies an optional argument that may be passed to the service. You can specify as many of these as you need. 
 
-- @key_for hash_name [type] name description. Specifies element of a hash argument.
+- @response_field [type] name description. Further specifies the fields that are returned within the response.
 
-- @value_for argument_name name description. Specifies valid value of an argument.
+### Examples
+
+Examples should always be together in the following order: example_request, example_request_description, example_response, example_response_description (as soon as you write a example_request you need a following example_response and the other way around).
 
 - @example_request example. An example of the request that is send to the service.
 
-- @request_field name description. Further specifies the fields that are send within the request.  This is useful when the service 
-    accepts only one argument that has many fields, like a JSON or XML string.
+- @example_request_description description. The description text for the example request.
 
-- @example_response example. An example of the response that is returned from the service
+- @example_response example. An example of the response that is returned from the service.
 
-- @response_field name description. Further specifies the fields that are returned within the response
+- @example_response_description example. The description text for the example response.
 
-- @response_code
-
-- @header
-
-- @image
 
 ## Ignored Documentation
 
-This plugin only documents **classes** and **methods** with **@url** tags. It does not support module documentation.
+This plugin only documents **classes** and **methods** with **@resource** tags. It does not support module documentation.
 
 The rationale here is that you are documenting external services (as represented by controllers and methods), and not internal code.
 
-Both controller *and* methods must have @url and @topic tags to be included in documentation.
-
-Methods with the @overall tag will be ignored.
+Both controller *and* methods must have @resource tags to be included in documentation.
 
 ## Example:
 
+  ##
+  # A thing characteristic of its kind or illustrating a general rule: 
+  # it's a good example of how European action can produce results | some of these carpets are among the finest examples of the period.
+  #
+  class ExamplesController
+
     ##
-    # Retuns all samples, as XML, for the current user that match the given parameters.
+    # Get a collection of examples:
+    # 
+    # @resource /examples
     #
-    # @url [GET] /samples.[format]?[arguments]
-    # @url [GET] /samples/index.[format]?[arguments]
+    # @action GET
     # 
-    # @required_argument [String] format Only "xml" is support at this time.
-    # @required_argument [String] name The name of the sample
-    # @required_argument [String] resource The resource that sample belongs to
-    # @optional_argument ["@assigned"|"@complete"|"!@complete"] search Return samples that are assigned, complete, or
-    #   uncomplete.
+    # @optional [Boolean] highlight Show only highlighted examples.
     #
-    # @example_response
-    #   <samples type="array">
-    #     <sample>
-    #       <id>961</id>
-    #       <name>My Sample</name>
-    #       <state>complete</state>
-    #       <last_unassigned_user_id type="integer"></last_unassigned_user_id>
-    #       <resource_id type="integer">127</resource_id>
-    #       <notes></notes>
-    #       <updated_at type="datetime">2010-03-09T20:43:29Z</updated_at>
-    #       <created_at type="datetime">2010-03-09T20:43:16Z</created_at>
-    #     </sample>
-    #   <samples>
+    # @response_field [Array] examples The collection of examples.  
+    # @response_field [Integer] examples[].id The id of that example.
+    # @response_field [String] examples[].title The title of that example.
+    # @response_field [String] examples[].text The text of that example.
+    # @response_field [String] examples[].highlight Information if the example is highlighted.
+    #
+    # @example_request {}
+    # @example_request_description Just requests an index of samples. 
+    # @example_response {"examples": [{"id":1, "title":"Animals", "text":"Dogs and cats are some.", "highlight":true}, {"id":2, "title":"Computers", "text":"Windows PC or Apple's Macintosh.", "highlight":false}]}
+    # @example_response_description Responds with the index of examples.
     # 
-    # @response_field [Integer] id A unique ID identifying the Sample
-    # @response_field [String] name The name of the sample
-    # @response_field [String] state The current status of the Sample. Can be complete, uncomplete, etc.
-    # @response_field [String] notes Any notes given for the sample
-    # @response_field [DateTime] updated_at The Date/Time (in ISO8601) that the Sample was last updated
-    # @response_field [DateTime] created_at The Date/Time (in ISO8601) that the Sample was created
-    # 
+    # @example_request {"highlight": true}
+    # @example_request_description Request only highlighted examples.
+    # @example_response {"examples": [{"id":1, "title":"Animals", "text":"Dogs and cats are some.", "highlight":true}]}
+    # @example_response_description Responds only with highlighted examples.
+    #
     def index
+      #...
     end
-    
+
     ##
-    # Retuns all samples, as XML, for the current user that match the given parameters.
+    # Get a collection of examples:
     # 
-    # @url [POST] /samples.[format]?[arguments]
+    # @resource /examples/:id
+    #
+    # @action GET
     # 
-    # @required_argument [String] format Only "xml" is support at this time.
+    # @required [Integer] id The id of the example.
     #
-    # @example_request
-    #   <sample>
-    #     <id>961</id>
-    #     <name>My Sample</name>
-    #     <state>complete</state>
-    #     <last_unassigned_user_id type="integer"></last_unassigned_user_id>
-    #     <resource_id type="integer">127</resource_id>
-    #     <note_attributes type="array">
-    #       <note>
-    #         <id>new_123</id>
-    #         <text>Note One</note>
-    #       </note>
-    #     </note_attributes>
-    #     <updated_at type="datetime">2010-03-09T20:43:29Z</updated_at>
-    #     <created_at type="datetime">2010-03-09T20:43:16Z</created_at>
-    #   </sample>
+    # @response_field [Integer] example.id The id of that example.
+    # @response_field [String] example.title The title of that example.
+    # @response_field [String] example.text The text of that example.
+    # @response_field [String] example.highlight Information if the example is highlighted.
     #
-    # @request_field [Integer] id A unique ID identifying the Sample
-    # @request_field [String] name The name of the sample
-    # @request_field [String] state The current status of the Sample. Can be complete, uncomplete, etc.
-    # @request_field [String] note_attributes Any notes given for the sample that will be created
-    # @request_field [DateTime] updated_at The Date/Time (in ISO8601) that the Sample was last updated
-    # @request_field [DateTime] created_at The Date/Time (in ISO8601) that the Sample was created
+    # @example_request {"id":1}
+    # @example_request_description Just requests the example with id 1. 
+    # @example_response {"example": {"id":1, "title":"Animals", "text":"Dogs and cats are some.", "highlight":true}}
+    # @example_response_description Responds with the requested example.
     #
-    # @example_response
-    #   <sample>
-    #     <id>961</id>
-    #     <name>My Sample</name>
-    #     <state>complete</state>
-    #     <last_unassigned_user_id type="integer"></last_unassigned_user_id>
-    #     <resource_id type="integer">127</resource_id>
-    #     <notes type="array">
-    #       <note>
-    #         <text>Note One</note>
-    #       </note>
-    #     </notes>
-    #     <updated_at type="datetime">2010-03-09T20:43:29Z</updated_at>
-    #     <created_at type="datetime">2010-03-09T20:43:16Z</created_at>
-    #   </sample>
+    def show
+      #...
+    end
+
+    ##
+    # Create an example:
     # 
-    # @response_field [Integer] id A unique ID identifying the Sample
-    # @response_field [String] name The name of the sample
-    # @response_field [String] state The current status of the Sample. Can be complete, uncomplete, etc.
-    # @response_field [String] notes Any notes given for the sample
-    # @response_field [DateTime] updated_at The Date/Time (in ISO8601) that the Sample was last updated
-    # @response_field [DateTime] created_at The Date/Time (in ISO8601) that the Sample was created
+    # @resource /examples
+    #
+    # @action POST
+    # 
+    # @required [Hash] example The object of the new example.
+    # @required [String] example.title The title of the new example.
+    # @required [String] example.text The text of the new example.
+    #
+    # @optional [Boolean] example.highlight The highlight status of the new example. (Default is false)
+    #
+    # @example_request {"example": {"title":"Fish", "text": "Angel- or Butterflyfish"}}
+    # @example_resuest_description Create a new example for fish.
+    # @example_response {}
+    # @example_response_description Responds with an empty hash and status: 201 (Created).
     #
     def create
+      #...
     end
+  end
 
 ## Development
 
