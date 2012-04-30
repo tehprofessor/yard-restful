@@ -25,7 +25,7 @@ When using yardoc you ask it to use the "rest" plugin (the --plugin option). For
 
 When you want to make the API-documentation available for public use the following command:
 
-    bundle exec yardoc --plugin rest --title 'Our App's API' --output-dir ./public/api
+    bundle exec yardoc --plugin rest --title 'Our App's API' --readme "./doc/README_FOR_API" --output-dir ./public/api
 
 ## Gemfile functionality
 
