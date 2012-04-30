@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = "yard-rest"
-  s.version = "1.0.1"
+  s.version = "1.0.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["R. Kevin Nelson", "Aisha Fenton", "Sebastian Pape"]
@@ -19,9 +19,34 @@ Gem::Specification.new do |s|
   s.files = [
     "Rakefile",
     "example/app/controllers/examples_controller.rb",
+    "example/doc/README_FOR_API",
     "lib/yard-rest.rb",
     "lib/yard-rest/rest_filters.rb",
-    "lib/yard-rest/tags.rb"
+    "lib/yard-rest/tags.rb",
+    "templates/rest/class/html/header.erb",
+    "templates/rest/class/html/method_details_list.erb",
+    "templates/rest/class/html/setup.rb",
+    "templates/rest/docstring/html/setup.rb",
+    "templates/rest/docstring/html/text.erb",
+    "templates/rest/fulldoc/html/full_list_resource.erb",
+    "templates/rest/fulldoc/html/full_list_topic.erb",
+    "templates/rest/fulldoc/html/js/rest_plugin.js",
+    "templates/rest/fulldoc/html/setup.rb",
+    "templates/rest/layout/html/footer.erb",
+    "templates/rest/layout/html/index.erb",
+    "templates/rest/layout/html/layout.erb",
+    "templates/rest/layout/html/search.erb",
+    "templates/rest/layout/html/setup.rb",
+    "templates/rest/method_details/html/header.erb",
+    "templates/rest/method_details/html/method_url.erb",
+    "templates/rest/method_details/html/setup.rb",
+    "templates/rest/tags/html/example_request.erb",
+    "templates/rest/tags/html/example_response.erb",
+    "templates/rest/tags/html/generic_tag.erb",
+    "templates/rest/tags/html/index.erb",
+    "templates/rest/tags/html/key_for.erb",
+    "templates/rest/tags/html/value_for.erb",
+    "templates/rest/tags/setup.rb"
   ]
   s.homepage = "https://github.com/spape/yard-rest-plugin"
   s.require_paths = ["lib"]
