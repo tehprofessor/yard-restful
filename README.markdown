@@ -68,6 +68,7 @@ Examples should always be together in the following order: example_request, exam
 
 - @example_response_description example. The description text for the example response.
 
+If a tags text contains a newline markdown rendering for the text is activated to allow further formatting in the examples:
 
 ## Ignored Documentation
 
@@ -102,7 +103,8 @@ Both controller *and* methods must have @resource tags to be included in documen
     #
     # @example_request {}
     # @example_request_description Just requests an index of samples. 
-    # @example_response {"examples": [{"id":1, "title":"Animals", "text":"Dogs and cats are some.", "highlight":true}, {"id":2, "title":"Computers", "text":"Windows PC or Apple's Macintosh.", "highlight":false}]}
+    # @example_response
+    # {"examples": [{"id":1, "title":"Animals", "text":"Dogs and cats are some.", "highlight":true}, {"id":2, "title":"Computers", "text":"Windows PC or Apple's Macintosh.", "highlight":false}]}
     # @example_response_description Responds with the index of examples.
     # 
     # @example_request {"highlight": true}
@@ -130,7 +132,17 @@ Both controller *and* methods must have @resource tags to be included in documen
     #
     # @example_request {"id":1}
     # @example_request_description Just requests the example with id 1. 
-    # @example_response {"example": {"id":1, "title":"Animals", "text":"Dogs and cats are some.", "highlight":true}}
+    # @example_response 
+    #     ```json
+    #     {
+    #       "example": {
+    #         "id":1,
+    #         "title":"Animals",
+    #         "text":"Dogs and cats are some.",
+    #         "highlight":true
+    #       }
+    #     }
+    #     ```
     # @example_response_description Responds with the requested example.
     #
     def show
