@@ -60,16 +60,44 @@
 							<% example_request_description = meth.tags(:example_request_description)[i] %>
 							<% example_response = meth.tags(:example_response)[i] %>
 							<% example_response_description = meth.tags(:example_response_description)[i] %>
-							<span class="description"><%= (example_request_description.nil?) ? "" : example_request_description.text %></span>
+							<span class="description">
+								<% if example_request_description %>
+									<% if example_request_description.text =~ /\n/im %>
+										<%= htmlify(example_request_description.text, :markdown) %>
+									<% else %>
+										<%= example_request_description.text %>
+									<% end %>
+								<% end %>
+							</span>
 							<span class="hash request">
 								<strong class="type">Request</strong>
-								<%= (example_request.nil?) ? "" : example_request.text %>
+								<% if example_request %>
+									<% if example_request.text =~ /\n/im %>
+										<%= htmlify(example_request.text, :markdown) %>
+									<% else %>
+										<%= example_request.text %>
+									<% end %>
+								<% end %>
 							</span>
 							<span class="hash response">
 								<strong class="type">Response</strong>
-								<%= (example_response.nil?) ? "" : example_response.text %>
+								<% if example_response %>
+									<% if example_response.text =~ /\n/im %>
+										<%= htmlify(example_response.text, :markdown) %>
+									<% else %>
+										<%= example_response.text %>
+									<% end %>
+								<% end %>
 							</span>
-							<span class="description"><%= (example_response_description.nil?) ? "" : example_response_description.text %></span>
+							<span class="description">
+								<% if example_response_description %>
+									<% if example_response_description.text =~ /\n/im %>
+										<%= htmlify(example_response_description.text, :markdown) %>
+									<% else %>
+										<%= example_response_description.text %>
+									<% end %>
+								<% end %>
+							</span>
 						</div>
 					<% end %>
 				</div>
