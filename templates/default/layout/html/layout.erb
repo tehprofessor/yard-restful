@@ -130,9 +130,37 @@
 			border-top-left-radius: 0;
 			border-top-right-radius: 0;
 		}
+		
+		pre {
+		  margin: 0;
+		}
+		
+		pre code {
+		  position: relative;
+		  border: 1px solid transparent;
+		  border-radius: 6px;
+		}
+		
+		pre code:hover {
+		  background: #d4e5fe;
+		}
+		
+		pre code:active {
+		  background: #c1d8fb;
+		}
 	</style>
 	<script type="text/javascript">
 		//<![CDATA[
+		
+		  function setup_log() {
+		    $("pre.code.json").attr("title", "click to inspect in browser debugger: console.log()");
+		    $("pre.code.json").css("cursor", "pointer");
+		    $("pre.code.json").click(function(){
+		      var code = $(this).find("code");
+		      console.log(code.html());
+		      console.log(JSON.parse(code.html()));
+		    });
+		  }
 		
 			function setup_toc() {
 	 		  if ($('#content').length === 0) return;
@@ -186,7 +214,10 @@
 			    $('#toc').toggleClass('nofloat');
 			  });
 			}
-			$(document).ready(setup_toc);
+			$(document).ready(function(){
+			  setup_toc();
+			  setup_log();
+			});
 		//]]>
 	</script>
   </head>
