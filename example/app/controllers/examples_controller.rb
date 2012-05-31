@@ -26,7 +26,17 @@ class ExamplesController
   # 
   # @example_request {"highlight": true}
   # @example_request_description Request only highlighted examples.
-  # @example_response {"examples": [{"id":1, "title":"Animals", "text":"Dogs and cats are some.", "highlight":true}]}
+  # @example_response 
+  #   ```json
+  #   {
+  #     "examples": [{
+  #       "id":1,
+  #       "title":"Animals",
+  #       "text":"Dogs and cats are some.",
+  #       "highlight":true
+  #     }]
+  #   }
+  #   ```
   # @example_response_description Responds only with highlighted examples.
   #
   def index
@@ -49,7 +59,17 @@ class ExamplesController
   #
   # @example_request {"id":1}
   # @example_request_description Just requests the example with id 1. 
-  # @example_response {"example": {"id":1, "title":"Animals", "text":"Dogs and cats are some.", "highlight":true}}
+  # @example_response 
+  #   ```json
+  #   {
+  #     "example": {
+  #       "id":1,
+  #       "title":"Animals",
+  #       "text":"Dogs and cats are some.",
+  #       "highlight":true
+  #     }
+  #   }
+  #   ```
   # @example_response_description Responds with the requested example.
   #
   def show
