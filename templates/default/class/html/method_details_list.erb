@@ -6,7 +6,7 @@
 			<h3 class="resource_url"><strong><%= meth.tag(:resource).text %></strong> [<%= meth.tag(:action).text %>]</h3>
 
 			<div class="parameters">	
-				<% if meth.tags(:required).size %>
+				<% if meth.tags(:required).size > 0 %>
 					<div class="required">
 						<h4>Required Parameters</h4>
 						<% meth.tags(:required).each do |required| %>
@@ -21,7 +21,7 @@
 					</div>
 				<% end %>
 
-				<% if meth.tags(:optional).size %>
+				<% if meth.tags(:optional).size > 0 %>
 					<div class="optional">
 						<h4>Optional Parameters</h4>
 						<% meth.tags(:optional).each do |optional| %>
@@ -37,7 +37,7 @@
 				<% end %>
 			</div><!-- parameters -->
 			
-			<% if meth.tags(:response_field).size %>
+			<% if meth.tags(:response_field).size > 0 %>
 				<div class="response_fields">
 					<h4>Response Fields</h4>
 					<% meth.tags(:response_field).each do |response_field| %>
@@ -52,7 +52,7 @@
 				</div>
 			<% end %>
 			
-			<% if meth.tags(:example_request).size %>
+			<% if meth.tags(:example_request).size > 0 %>
 				<div class="examples">
 					<h4>Examples</h4>
 					<% meth.tags(:example_request).each_with_index do |example_request, i| %>
@@ -60,16 +60,44 @@
 							<% example_request_description = meth.tags(:example_request_description)[i] %>
 							<% example_response = meth.tags(:example_response)[i] %>
 							<% example_response_description = meth.tags(:example_response_description)[i] %>
-							<span class="description"><%= (example_request_description.nil?) ? "" : example_request_description.text %></span>
+							<span class="description">
+								<% if example_request_description %>
+									<% if example_request_description.text =~ /\n/im %>
+										<%= htmlify(example_request_description.text, :markdown) %>
+									<% else %>
+										<%= example_request_description.text %>
+									<% end %>
+								<% end %>
+							</span>
 							<span class="hash request">
 								<strong class="type">Request</strong>
-								<%= (example_request.nil?) ? "" : example_request.text %>
+								<% if example_request %>
+									<% if example_request.text =~ /\n/im %>
+										<%= htmlify(example_request.text, :markdown) %>
+									<% else %>
+										<%= example_request.text %>
+									<% end %>
+								<% end %>
 							</span>
 							<span class="hash response">
 								<strong class="type">Response</strong>
-								<%= (example_response.nil?) ? "" : example_response.text %>
+								<% if example_response %>
+									<% if example_response.text =~ /\n/im %>
+										<%= htmlify(example_response.text, :markdown) %>
+									<% else %>
+										<%= example_response.text %>
+									<% end %>
+								<% end %>
 							</span>
-							<span class="description"><%= (example_response_description.nil?) ? "" : example_response_description.text %></span>
+							<span class="description">
+								<% if example_response_description %>
+									<% if example_response_description.text =~ /\n/im %>
+										<%= htmlify(example_response_description.text, :markdown) %>
+									<% else %>
+										<%= example_response_description.text %>
+									<% end %>
+								<% end %>
+							</span>
 						</div>
 					<% end %>
 				</div>
