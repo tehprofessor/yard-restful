@@ -11,11 +11,11 @@ A plugin for [Yardoc](http://yardoc.org/) that generates documentation for RESTf
 
 It also requires the Jeweler gem if you plan to use the rake build tasks.
 
-## Fast Example
+## See an API-Example
 
-Run 'rake ex:generate' inside this plugin folder and get a look to the generated doc/index.html.
+[Yard-Rest-Plugin](http://spape.github.com/yard-rest-plugin) and get a look to the "Example" resource.
 
-## Demo
+## Demo (see the plugin in action)
 
 Visit [MAdeK-Api-Documetnation](http://medienarchiv.zhdk.ch/api) for a demonstration. Or visit ROR project [MAdeK](http://github.com/zhdk/madek) on github to see how we document our api.
 
