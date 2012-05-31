@@ -11,6 +11,10 @@ A plugin for [Yardoc](http://yardoc.org/) that generates documentation for RESTf
 
 It also requires the Jeweler gem if you plan to use the rake build tasks.
 
+## Fast Example
+
+Run 'rake ex:generate' inside this plugin folder and get a look to the generated doc/index.html.
+
 ## Demo
 
 Visit [MAdeK-Api-Documetnation](http://medienarchiv.zhdk.ch/api) for a demonstration. Or visit ROR project [MAdeK](http://github.com/zhdk/madek) on github to see how we document our api.
@@ -60,15 +64,27 @@ In addition to starting your comment with the normal RDoc description. The follo
 
 Examples should always be together in the following order: example_request, example_request_description, example_response, example_response_description (as soon as you write a example_request you need a following example_response and the other way around).
 
+Markdown rendering for the text is activated if a tags text contains a newline (see example).
+
 - @example_request example. An example of the request that is send to the service.
 
 - @example_request_description description. The description text for the example request.
 
 - @example_response example. An example of the response that is returned from the service.
 
-- @example_response_description example. The description text for the example response.
+- @example_response example.
+    ```json
+    {
+      "examples": [{
+        "id":1,
+        "title":"Animals",
+        "text":"Dogs and cats are some.",
+        "highlight":true
+       }]
+    }
+    ```
 
-If a tags text contains a newline markdown rendering for the text is activated to allow further formatting in the examples:
+- @example_response_description example. The description text for the example response.
 
 ## Ignored Documentation
 
@@ -85,7 +101,7 @@ Both controller *and* methods must have @resource tags to be included in documen
   # it's a good example of how European action can produce results | some of these carpets are among the finest examples of the period.
   #
   class ExamplesController
-
+  
     ##
     # Get a collection of examples:
     # 
@@ -103,19 +119,28 @@ Both controller *and* methods must have @resource tags to be included in documen
     #
     # @example_request {}
     # @example_request_description Just requests an index of samples. 
-    # @example_response
-    # {"examples": [{"id":1, "title":"Animals", "text":"Dogs and cats are some.", "highlight":true}, {"id":2, "title":"Computers", "text":"Windows PC or Apple's Macintosh.", "highlight":false}]}
+    # @example_response {"examples": [{"id":1, "title":"Animals", "text":"Dogs and cats are some.", "highlight":true}, {"id":2, "title":"Computers", "text":"Windows PC or Apple's Macintosh.", "highlight":false}]}
     # @example_response_description Responds with the index of examples.
     # 
     # @example_request {"highlight": true}
     # @example_request_description Request only highlighted examples.
-    # @example_response {"examples": [{"id":1, "title":"Animals", "text":"Dogs and cats are some.", "highlight":true}]}
+    # @example_response 
+    #   ```json
+    #   {
+    #     "examples": [{
+    #       "id":1,
+    #       "title":"Animals",
+    #       "text":"Dogs and cats are some.",
+    #       "highlight":true
+    #     }]
+    #   }
+    #   ```
     # @example_response_description Responds only with highlighted examples.
     #
     def index
       #...
     end
-
+  
     ##
     # Get a collection of examples:
     # 
@@ -133,22 +158,22 @@ Both controller *and* methods must have @resource tags to be included in documen
     # @example_request {"id":1}
     # @example_request_description Just requests the example with id 1. 
     # @example_response 
-    #     ```json
-    #     {
-    #       "example": {
-    #         "id":1,
-    #         "title":"Animals",
-    #         "text":"Dogs and cats are some.",
-    #         "highlight":true
-    #       }
+    #   ```json
+    #   {
+    #     "example": {
+    #       "id":1,
+    #       "title":"Animals",
+    #       "text":"Dogs and cats are some.",
+    #       "highlight":true
     #     }
-    #     ```
+    #   }
+    #   ```
     # @example_response_description Responds with the requested example.
     #
     def show
       #...
     end
-
+  
     ##
     # Create an example:
     # 
