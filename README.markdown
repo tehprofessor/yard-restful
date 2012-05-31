@@ -2,7 +2,7 @@
 
 originally by [vWorkApp](http://www.vworkapp.com)
 rewritten for 0.3.0 by [rknLA](http://github.com/rknLA) with substantial help from [lsegal](http://gnuu.org/)
-customized by [spape](http://github.com/spape) for the [MAdeK](http://github.com/zhdk/madek) API-Documentation
+customized by [spape](http://github.com/spape) for the [MAdeK](http://github.com/zhdk/madek) [API-Documentation](http://medienarchiv.zhdk.ch/api)
 
 A plugin for [Yardoc](http://yardoc.org/) that generates documentation for RESTful web services. 
 
@@ -40,7 +40,7 @@ You may also include yard-rest in your gemfile using:
 You may need to include the following dependencies as well:
 
     gem 'redcarpet'
-    gem 'yard', '~>0.7.4'
+    gem 'yard', '~>0.8.1'
 
 If you include yard-rest in your gemfile, you should generate docs using bundle exec:
 
