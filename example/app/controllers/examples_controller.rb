@@ -21,7 +21,22 @@ class ExamplesController
   #
   # @example_request {}
   # @example_request_description Just requests an index of samples. 
-  # @example_response {"examples": [{"id":1, "title":"Animals", "text":"Dogs and cats are some.", "highlight":true}, {"id":2, "title":"Computers", "text":"Windows PC or Apple's Macintosh.", "highlight":false}]}
+  # @example_response 
+  #   ```json
+  #   {
+  #     "examples": [{
+  #       "id":1,
+  #       "title":"Animals",
+  #       "text":"Dogs and cats are some.",
+  #       "highlight":true
+  #     },{
+  #       "id":2,
+  #       "title":"Computers",
+  #       "text":"Windows PC or Apple's Macintosh.",
+  #       "highlight":false
+  #     }]
+  #   }
+  #   ```
   # @example_response_description Responds with the index of examples.
   # 
   # @example_request {"highlight": true}
@@ -90,7 +105,7 @@ class ExamplesController
   # @optional [Boolean] example.highlight The highlight status of the new example. (Default is false)
   #
   # @example_request {"example": {"title":"Fish", "text": "Angel- or Butterflyfish"}}
-  # @example_resuest_description Create a new example for fish.
+  # @example_request_description Create a new example for fish.
   # @example_response {}
   # @example_response_description Responds with an empty hash and status: 201 (Created).
   #
