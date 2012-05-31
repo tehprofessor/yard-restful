@@ -154,21 +154,21 @@
 			border-top-right-radius: 0;
 		}
 		
-		pre {
+		pre.code.json {
 		  margin: 0;
 		}
 		
-		pre code {
+		pre.code.json code {
 		  position: relative;
 		  border: 1px solid transparent;
 		  border-radius: 6px;
 		}
 		
-		pre code:hover {
+		pre.code.json code:hover {
 		  background: #d4e5fe;
 		}
 		
-		pre code:active {
+		pre.code.json code:active {
 		  background: #c1d8fb;
 		}
 	</style>
@@ -376,7 +376,21 @@ carpets are among the finest examples of the period.</p>
 								<strong class="type">Response</strong>
 								
 									
-										{"examples": [{"id":1, "title":"Animals", "text":"Dogs and cats are some.", "highlight":true}, {"id":2, "title":"Computers", "text":"Windows PC or Apple's Macintosh.", "highlight":false}]}
+										<pre class="code json"><code>{
+  &quot;examples&quot;: [{
+    &quot;id&quot;:1,
+    &quot;title&quot;:&quot;Animals&quot;,
+    &quot;text&quot;:&quot;Dogs and cats are some.&quot;,
+    &quot;highlight&quot;:true
+  },{
+    &quot;id&quot;:2,
+    &quot;title&quot;:&quot;Computers&quot;,
+    &quot;text&quot;:&quot;Windows PC or Apple's Macintosh.&quot;,
+    &quot;highlight&quot;:false
+  }]
+}
+</code></pre>
+
 									
 								
 							</span>
@@ -617,6 +631,10 @@ carpets are among the finest examples of the period.</p>
 							
 							<span class="description">
 								
+									
+										Create a new example for fish.
+									
+								
 							</span>
 							<span class="hash request">
 								<strong class="type">Request</strong>
@@ -666,7 +684,7 @@ carpets are among the finest examples of the period.</p>
 	</div>
     
     <div id="footer">
-  Generated on Thu May 31 15:17:00 2012 with ruby-1.9.3
+  Generated on Thu May 31 15:47:46 2012 with ruby-1.9.3
 </div>
 
   </body>
