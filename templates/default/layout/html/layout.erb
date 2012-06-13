@@ -4,7 +4,29 @@
   <head>
     <%= erb(:headers) %>
 	<style type="text/css">
-		#toc {top: 24px;}
+		#toc {
+		  height: 100%;
+		  right: 0;
+		  position: fixed;
+		  top: 0;
+		  width: 230px;
+	  }
+	  #header {
+	    position: fixed;
+	    top: 0;
+	    z-index: 1001;
+	  }
+	  #header #search {
+	    position: fixed;
+	    top: 0;
+	    right: 8px;
+	    z-index: 1001;
+	  }
+	  #content {
+	    margin-right: 254px;
+	    position: relative;
+	    z-index: 1;
+	  }
 		#toc .title {display: none;}
 		#toc a:link, #content a:visited { text-decoration: none; color: #05a; }
 		#toc a:hover { background: #ffffa5; }
