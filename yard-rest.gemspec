@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "yard-rest"
-  s.version = "1.1.1"
+  s.version = "1.1.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Sebastian Pape"]
-  s.date = "2012-06-08"
+  s.date = "2012-06-13"
   s.description = "A customized plugin for Yardoc that produces API documentation for Restful web services"
   s.email = ""
   s.extra_rdoc_files = [
