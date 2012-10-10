@@ -3,6 +3,7 @@ YARD::Tags::Library.define_tag("URL for the Resource",          :resource)
 YARD::Tags::Library.define_tag("Object Used in Resource",       :resource_object)
 YARD::Tags::Library.define_tag("Resource Object Properties",    :resource_object_properties)
 YARD::Tags::Library.define_tag("Resource Object Footnotes",     :resource_object_footnotes)
+YARD::Tags::Library.define_tag("URL",                           :url)
 YARD::Tags::Library.define_tag("HTTP-Action for the Resource",  :action)
 
 YARD::Tags::Library.define_tag("Required Arguments",            :required,          :with_types_and_name)

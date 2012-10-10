@@ -2,10 +2,15 @@
   <div id="Services" class="method_details_list">
     <% @meths.each_with_index do |meth, i| %>
 		<div class="method">
+      <h3><%= meth.tag(:resource).text %></h3>
 			<p class="method_desc"><%= meth.docstring %></p>
-			<h3 class="resource_url"><strong><%= meth.tag(:resource).text %></strong> [<%= meth.tag(:action).text %>]</h3>
+      <div class="resource_url">
+				<h4>URL</h4>
+        <span class="action"><%= meth.tag(:action).text %></span>
+        <span class="url"><%= meth.tag(:url).text %></span>
+      </div>
 
-			<div class="parameters">	
+			<div class="parameters">
 				<% if meth.tags(:required).size > 0 %>
 					<div class="required">
 						<h4>Required Parameters</h4>
@@ -36,7 +41,7 @@
 					</div>
 				<% end %>
 			</div><!-- parameters -->
-			
+
 			<% if meth.tags(:response_field).size > 0 %>
 				<div class="response_fields">
 					<h4>Response Fields</h4>
@@ -51,7 +56,7 @@
 					<% end %>
 				</div>
 			<% end %>
-			
+
 			<% if meth.tags(:example_request).size > 0 %>
 				<div class="examples">
 					<h4>Examples</h4>
@@ -102,7 +107,7 @@
 					<% end %>
 				</div>
 			<% end %>
-		</div>	
+		</div>
     <% end %>
   </div>
 <% end %>
