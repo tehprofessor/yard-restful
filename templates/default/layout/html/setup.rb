@@ -3,12 +3,16 @@ include Helpers::FilterHelper
 def init
   @page_title = options[:title]
   if object == "_index.html"
-    
+
   elsif object.name == :root
     sections :layout, [:index]
   else
     super
   end
+end
+
+def stylesheets
+  super + %w(css/custom.css)
 end
 
 def javascripts
