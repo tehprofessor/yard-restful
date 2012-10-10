@@ -68,15 +68,15 @@ h4 {
   margin: 0;
 }
 #resources {
-  padding: 14px 20px 52px;
+  padding: 14px 50px 32px;
 }
 #resources li {
-  border-right: 1px solid #0055AA;
-  display: block;
+  padding: 5px;
+  list-style-position: outside;
+  list-style-type: disc;
+  text-decoration: none;
+  font-weight: normal;
   font-size: 1.4em;
-  float: left;
-  padding-right: 14px;
-  padding-left: 12px;
 }
 .resource_url {
   border: 1px solid white;
@@ -113,6 +113,12 @@ h4 {
 }
 .parameters .optional ul li .text, .parameters .required li .text, .response_fields li .text {
   display: block;
+}
+.parameters .optional ul li .type, .parameters .required li .type, .response_fields li .type {
+  padding-left: 10px;
+}
+.parameters .optional ul li .type tt, .parameters .required li .type tt, .response_fields li .type tt {
+  font-family: "Lucida Sans", "Lucida Grande", Verdana, Arial, sans-serif; /*taken from original yard style.css*/
 }
 .examples {
   padding: 32px 12px 12px 12px;
