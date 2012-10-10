@@ -22,6 +22,7 @@ Gem::Specification.new do |s|
     "example/app/models/examples_model.rb",
     "example/doc/README_FOR_API",
     "lib/yard-rest.rb",
+    "lib/yard-rest/html_blocks_helper.rb",
     "lib/yard-rest/rest_filters.rb",
     "lib/yard-rest/tags.rb",
     "templates/default/class/html/header.erb",

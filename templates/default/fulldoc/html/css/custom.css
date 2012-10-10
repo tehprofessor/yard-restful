@@ -81,7 +81,6 @@ h4 {
 .resource_url {
   border: 1px solid white;
   display: block;
-  background: #EAF0FF;
   margin-top: 11px;
   padding: 12px 12px 18px;
 }
@@ -96,7 +95,6 @@ h4 {
   background: none repeat scroll 0 0 #EAF0FF;
 }
 .parameters .required {
-  background: #d5e1ff;
   padding: 12px;
   border: 1px solid white;
 }
@@ -119,6 +117,12 @@ h4 {
 }
 .parameters .optional ul li .type tt, .parameters .required li .type tt, .response_fields li .type tt {
   font-family: "Lucida Sans", "Lucida Grande", Verdana, Arial, sans-serif; /*taken from original yard style.css*/
+}
+.method .odd {
+  background: #D5E1FF;
+}
+.method .even {
+  background: #EAF0FF;
 }
 .examples {
   padding: 32px 12px 12px 12px;
