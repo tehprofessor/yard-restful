@@ -1,21 +1,14 @@
 module RestFilters
 
-  def index_objects(list)
-    list = reject_without_resource(list)
-    list
+  def select_objects(list)
+    list.select{ |item| item.has_tag?(:resource_object) } if list
   end
 
-  def reject_without_resource(list)
+  def select_resources(list)
     if list
-      list.delete_if { |object|
-        if object.has_tag?(:resource_object)
-          false
-        elsif object.meths.detect{ |x| x.has_tag?(:resource) }
-          false
-        else
-          true
-        end
-      }
+      list.select do |object|
+        object.meths.any?{ |x| x.has_tag?(:resource) }
+      end
     end
   end
 

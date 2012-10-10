@@ -28,6 +28,6 @@ end
 
 def index
   @readme = options[:readme]
-  @resources = index_objects(@objects)
+  @resources = select_resources(@objects)
   erb(:index)
 end

@@ -5,7 +5,7 @@ end
 
 def method_details_list
   objects = Array(object)
-  objects_with_resources_tags = index_objects(objects)
+  objects_with_resources_tags = select_resources(objects)
   @meths = []
   unless objects_with_resources_tags.empty?
     objects_with_resources_tags.each do |obj|
