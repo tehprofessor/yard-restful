@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "yard-rest"
-  s.version = "1.1.4"
+  s.version = "1.2.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Sebastian Pape"]
-  s.date = "2012-09-03"
+  s.authors = ["Sebastian Pape", "Konstantin Rafalsky"]
+  s.date = "2012-10-10"
   s.description = "A customized plugin for Yardoc that produces API documentation for Restful web services"
   s.email = ""
   s.extra_rdoc_files = [
@@ -19,6 +19,7 @@ Gem::Specification.new do |s|
   s.files = [
     "Rakefile",
     "example/app/controllers/examples_controller.rb",
+    "example/app/models/examples_model.rb",
     "example/doc/README_FOR_API",
     "lib/yard-rest.rb",
     "lib/yard-rest/rest_filters.rb",
@@ -28,6 +29,7 @@ Gem::Specification.new do |s|
     "templates/default/class/html/setup.rb",
     "templates/default/docstring/html/setup.rb",
     "templates/default/docstring/html/text.erb",
+    "templates/default/fulldoc/html/css/custom.css",
     "templates/default/fulldoc/html/full_list_resource.erb",
     "templates/default/fulldoc/html/full_list_topic.erb",
     "templates/default/fulldoc/html/js/rest_plugin.js",
@@ -45,10 +47,11 @@ Gem::Specification.new do |s|
     "templates/default/tags/html/generic_tag.erb",
     "templates/default/tags/html/index.erb",
     "templates/default/tags/html/key_for.erb",
+    "templates/default/tags/html/response_object_properties.erb",
     "templates/default/tags/html/value_for.erb",
     "templates/default/tags/setup.rb"
   ]
-  s.homepage = "https://github.com/spape/yard-rest-plugin"
+  s.homepage = "https://github.com/kraft/yard-rest-plugin"
   s.require_paths = ["lib"]
   s.rubygems_version = "1.8.24"
   s.summary = "A customized plugin for Yardoc that produces API documentation for Restful web services"

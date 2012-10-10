@@ -8,8 +8,8 @@ begin
     gem.summary = %Q{A customized plugin for Yardoc that produces API documentation for Restful web services}
     gem.description = %Q{A customized plugin for Yardoc that produces API documentation for Restful web services}
     gem.email = ''
-    gem.homepage = "https://github.com/spape/yard-rest-plugin"
-    gem.authors = ['Sebastian Pape']
+    gem.homepage = "https://github.com/kraft/yard-rest-plugin"
+    gem.authors = ['Sebastian Pape', 'Konstantin Rafalsky']
     gem.add_dependency("yard", '~>0.8.1')
     gem.files = Dir.glob("{lib,example,templates}/**/*").concat(["Rakefile"])
     gem.extra_rdoc_files = ['VERSION', 'README.markdown']
