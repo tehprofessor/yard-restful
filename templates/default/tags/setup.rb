@@ -9,7 +9,8 @@ def init
                         :example_response,
                         :response_field,
                         :header,
-                        :response_code])
+                        :response_code,
+                        :resource_object_properties])
 end
 
 def request_field
