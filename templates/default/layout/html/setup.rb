@@ -20,9 +20,10 @@ def javascripts
 end
 
 def menu_lists
-  [ { :type => 'resource', :title => "Resources", :search_title => "List of Resources" },
-    { :type => 'topic', :title => "Topics", :search_title => "Topic List" },
-    { :type => 'file', :title => "Files", :search_title => "File List" } ]
+  [
+    { :type => 'resource', :title => "Resources", :search_title => "Resources" },
+    { :type => 'object', :title => "Objects", :search_title => "Objects" }
+  ]
 end
 
 def index

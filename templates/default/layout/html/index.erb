@@ -4,14 +4,14 @@
   <% if @readme %>
 	<%= htmlify(@readme.contents, :markdown) %>
   <% end %>
-  
+
   <h2>All Resources</h2>
   <ul id="resources">
 	<% unless @resources.nil? %>
-    	<% @resources.sort_by { |s| s.name.to_s }.each do |resource| %>
-      		<li><%= linkify(resource, resource.name.to_s.gsub(/Controller/, "")) %></li>
-    	<% end %>
+    <% @resources.sort_by { |s| s.name.to_s }.each do |resource| %>
+	    <li><%= linkify(resource, resource.name.to_s.gsub(/Controller/, "")) %></li>
     <% end %>
+  <% end %>
   </ul>
 
   <div class="clear"></div>
