@@ -91,37 +91,30 @@ h4 {
 #search_frame #search {
   display: none;
 }
-.parameters, .response_fields {
-  background: none repeat scroll 0 0 #EAF0FF;
-}
-.parameters .required {
+.parameters {
   padding: 12px;
   border: 1px solid white;
 }
-.parameters .optional, .response_fields {
-  padding: 18px 12px 12px 12px;
-  border: 1px solid white;
-}
-.parameters .optional ul li, .parameters .required li, .response_fields li {
+.parameters ul li {
   display: block;
   padding: 4px 0 0 6px;
 }
-.parameters .optional ul li .name, .parameters .required li .name, .response_fields li .name {
+.parameters ul li .name {
   font-weight: bold;
 }
-.parameters .optional ul li .text, .parameters .required li .text, .response_fields li .text {
+.parameters ul li .text {
   display: block;
 }
-.parameters .optional ul li .type, .parameters .required li .type, .response_fields li .type {
+.parameters ul li .type {
   padding-left: 10px;
 }
-.parameters .optional ul li .type tt, .parameters .required li .type tt, .response_fields li .type tt {
+.parameters ul li .type tt {
   font-family: "Lucida Sans", "Lucida Grande", Verdana, Arial, sans-serif; /*taken from original yard style.css*/
 }
-.method .odd {
+.odd {
   background: #EAF0FF;
 }
-.method .even {
+.even {
   background: #D5E1FF;
 }
 .examples {
