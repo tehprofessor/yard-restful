@@ -178,3 +178,6 @@ pre.code.json code:active {
   background: #c1d8fb;
 }
 
+.object_properties_title {
+  margin-bottom: 16px;
+}
