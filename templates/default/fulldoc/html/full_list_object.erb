@@ -1,4 +1,4 @@
-<% @items.sort_by { |s| s.name.to_s }.each do |resource| %>
+<% @items.each do |resource| %>
   <li class="<%= rotate(:r2_r1_r2) %>"><%= linkify(resource, resource.name.to_s.gsub(/Controller/, "")) %></li>
 <% end %>
 
