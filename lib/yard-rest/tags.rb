@@ -1,20 +1,27 @@
 # Define custom tags
-YARD::Tags::Library.define_tag("URL for the Resource",          :resource)
-YARD::Tags::Library.define_tag("Object Used in Resource",       :resource_object)
-YARD::Tags::Library.define_tag("Resource Object Properties",    :resource_object_properties)
-YARD::Tags::Library.define_tag("Resource Object Footnotes",     :resource_object_footnotes)
-YARD::Tags::Library.define_tag("URL",                           :url)
-YARD::Tags::Library.define_tag("HTTP-Action for the Resource",  :action)
+tags = [
+  ["URL for the Resource",          :resource],
+  ["URL",                           :url],
+  ["HTTP-Action for the Resource",  :action],
 
-YARD::Tags::Library.define_tag("Required Arguments",            :required,          :with_types_and_name)
-YARD::Tags::Library.define_tag("Optional Arguments",            :optional,          :with_types_and_name)
+  ["Object Used in Resource",       :resource_object],
+  ["Resource Object Property",      :resource_object_property, :with_types_and_name],
+  ["Resource Object Example",       :resource_object_example],
 
-YARD::Tags::Library.define_tag("Example Request",               :example_request)
-YARD::Tags::Library.define_tag("Example Request Description",   :example_request_description)
-YARD::Tags::Library.define_tag("Request Fields",                :request_field,     :with_types_and_name)
+  ["Required Arguments",            :required,          :with_types_and_name],
+  ["Optional Arguments",            :optional,          :with_types_and_name],
 
-YARD::Tags::Library.define_tag("Example Response",              :example_response)
-YARD::Tags::Library.define_tag("Example Response Description",  :example_response_description)
-YARD::Tags::Library.define_tag("Response Fields",               :response_field,    :with_types_and_name)
+  ["Example Request",               :example_request],
+  ["Example Request Description",   :example_request_description],
+  ["Request Fields",                :request_field,     :with_types_and_name],
 
-YARD::Tags::Library.define_tag("Headers",                       :header, :with_name)
+  ["Example Response",              :example_response],
+  ["Example Response Description",  :example_response_description],
+  ["Response Fields",               :response_field,    :with_types_and_name],
+
+  ["Headers",                       :header, :with_name],
+]
+
+tags.each do |tag|
+    YARD::Tags::Library.define_tag(*tag)
+end

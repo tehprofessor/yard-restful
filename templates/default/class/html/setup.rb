@@ -1,6 +1,7 @@
 def init
   @page_title = "#{object.name.to_s.gsub(/Controller/,"")} - #{options[:title]}"
-  sections :header, [T('docstring'), :method_details_list, [T('method_details')]]
+  #sections :header, [T('docstring'), :method_details_list, [:fields_list], [T('method_details')]]
+  sections :header, [:method_details_list, [:fields_list]]
 end
 
 def method_details_list
@@ -14,3 +15,4 @@ def method_details_list
   end
   erb(:method_details_list)
 end
+
