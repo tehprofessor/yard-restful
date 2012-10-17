@@ -5,7 +5,7 @@
     <h3>Examples</h3>
     <% object.tags(:resource_object_example).each do |tag| %>
       <div class="example">
-        <%= htmlify(tag.text, :markdown) %>
+        <%= htmlify(tag.text) %>
       </div>
     <% end %>
   <% end %>

@@ -28,7 +28,7 @@
 							<span class="description">
 								<% if example_request_description %>
 									<% if example_request_description.text =~ /\n/im %>
-										<%= htmlify(example_request_description.text, :markdown) %>
+										<%= htmlify(example_request_description.text) %>
 									<% else %>
 										<%= example_request_description.text %>
 									<% end %>
@@ -38,7 +38,7 @@
 								<strong class="type">Request</strong>
 								<% if example_request %>
 									<% if example_request.text =~ /\n/im %>
-										<%= htmlify(example_request.text, :markdown) %>
+										<%= htmlify(example_request.text) %>
 									<% else %>
 										<%= example_request.text %>
 									<% end %>
@@ -48,7 +48,7 @@
 								<strong class="type">Response</strong>
 								<% if example_response %>
 									<% if example_response.text =~ /\n/im %>
-										<%= htmlify(example_response.text, :markdown) %>
+										<%= htmlify(example_response.text) %>
 									<% else %>
 										<%= example_response.text %>
 									<% end %>
@@ -57,7 +57,7 @@
 							<span class="description">
 								<% if example_response_description %>
 									<% if example_response_description.text =~ /\n/im %>
-										<%= htmlify(example_response_description.text, :markdown) %>
+										<%= htmlify(example_response_description.text) %>
 									<% else %>
 										<%= example_response_description.text %>
 									<% end %>

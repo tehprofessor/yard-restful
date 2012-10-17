@@ -7,9 +7,9 @@
 		<% tags_list.each do |tag| %>
 			<ul>
 				<li>
-					<span class="name"><%= tag.name%></span>
-					<span class="type"><%= format_types(tag.types, false)%></span>
-					<span class="text"><%= tag.text%></span>
+					<span class="name"><%= tag.name %></span>
+					<span class="type"><%= format_types(tag.types, false) %></span>
+					<span class="text"><%= htmlify(tag.text) %></span>
 				</li>
 			</ul>
 		<% end %>
