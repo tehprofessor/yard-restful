@@ -18,6 +18,7 @@ tags = [
   ["Example Response",              :example_response],
   ["Example Response Description",  :example_response_description],
   ["Response Fields",               :response_field,    :with_types_and_name],
+  ["Response Type",                 :response,    :with_types],
 
   ["Headers",                       :header, :with_name],
 ]

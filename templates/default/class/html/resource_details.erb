@@ -15,7 +15,19 @@
 
       <%= yieldall(object: meth, item: :required, title: 'Required Parameters') %>
       <%= yieldall(object: meth, item: :optional, title: 'Optional Parameters') %>
-      <%= yieldall(object: meth, item: :response_field, title: 'Response Fields') %>
+      <% if meth.tags(:response).size > 0 %>
+        <div class="parameters <%=rotate(:odd_even)%>">
+          <h4>Response Object</h4>
+          <ul>
+            <li>
+              <span class="type"><%= format_types(meth.tag(:response).types, false) %></span>
+              <span class="text"><%= htmlify(meth.tag(:response).text) %></span>
+            </li>
+          </ul>
+        </div>
+      <% else %>
+        <%= yieldall(object: meth, item: :response_field, title: 'Response Fields') %>
+      <% end %>
 
 			<% if meth.tags(:example_request).size > 0 %>
 				<div class="examples">
