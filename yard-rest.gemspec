@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Sebastian Pape", "Konstantin Rafalsky"]
-  s.date = "2012-10-10"
+  s.date = "2012-10-12"
   s.description = "A customized plugin for Yardoc that produces API documentation for Restful web services"
   s.email = ""
   s.extra_rdoc_files = [
@@ -25,32 +25,23 @@ Gem::Specification.new do |s|
     "lib/yard-rest/html_blocks_helper.rb",
     "lib/yard-rest/rest_filters.rb",
     "lib/yard-rest/tags.rb",
+    "templates/default/class/html/fields_list.erb",
     "templates/default/class/html/header.erb",
-    "templates/default/class/html/method_details_list.erb",
+    "templates/default/class/html/object_details.erb",
+    "templates/default/class/html/resource_details.erb",
     "templates/default/class/html/setup.rb",
     "templates/default/docstring/html/setup.rb",
     "templates/default/docstring/html/text.erb",
     "templates/default/fulldoc/html/css/custom.css",
+    "templates/default/fulldoc/html/frames.erb",
+    "templates/default/fulldoc/html/full_list_object.erb",
     "templates/default/fulldoc/html/full_list_resource.erb",
-    "templates/default/fulldoc/html/full_list_topic.erb",
     "templates/default/fulldoc/html/js/rest_plugin.js",
     "templates/default/fulldoc/html/setup.rb",
     "templates/default/layout/html/footer.erb",
     "templates/default/layout/html/index.erb",
     "templates/default/layout/html/layout.erb",
-    "templates/default/layout/html/search.erb",
-    "templates/default/layout/html/setup.rb",
-    "templates/default/method_details/html/header.erb",
-    "templates/default/method_details/html/method_url.erb",
-    "templates/default/method_details/html/setup.rb",
-    "templates/default/tags/html/example_request.erb",
-    "templates/default/tags/html/example_response.erb",
-    "templates/default/tags/html/generic_tag.erb",
-    "templates/default/tags/html/index.erb",
-    "templates/default/tags/html/key_for.erb",
-    "templates/default/tags/html/response_object_properties.erb",
-    "templates/default/tags/html/value_for.erb",
-    "templates/default/tags/setup.rb"
+    "templates/default/layout/html/setup.rb"
   ]
   s.homepage = "https://github.com/kraft/yard-rest-plugin"
   s.require_paths = ["lib"]
