@@ -105,6 +105,9 @@ h4 {
 .parameters ul li .text {
   display: block;
 }
+.parameters ul li .text p {
+  margin-top: 0px;
+}
 .parameters ul li .type {
   padding-left: 10px;
 }

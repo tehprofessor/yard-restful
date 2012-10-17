@@ -4,14 +4,14 @@
     <% unless options.title.empty? %>
       <h4><%= options.title %></h4>
     <% end %>
-		<% tags_list.each do |tag| %>
-			<ul>
+		<ul>
+  		<% tags_list.each do |tag| %>
 				<li>
 					<span class="name"><%= tag.name %></span>
 					<span class="type"><%= format_types(tag.types, false) %></span>
 					<span class="text"><%= htmlify(tag.text) %></span>
 				</li>
-			</ul>
-		<% end %>
+  		<% end %>
+	  </ul>
 	</div>
 <% end %>
