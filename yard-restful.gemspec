@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = "yard-restful"
-  s.version = "1.2.0"
+  s.version = "1.2.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Konstantin Rafalsky"]
@@ -40,7 +40,7 @@ Gem::Specification.new do |s|
     "templates/default/layout/html/layout.erb",
     "templates/default/layout/html/setup.rb"
   ]
-  s.homepage = "https://github.com/kraft/yard-restful"
+  s.homepage = "https://github.com/kraft001/yard-restful"
   s.require_paths = ["lib"]
   s.rubygems_version = "1.8.24"
   s.summary = "Yardoc plugin for Restful web services"
