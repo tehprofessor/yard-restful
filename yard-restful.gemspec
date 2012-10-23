@@ -4,12 +4,12 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = "yard-rest"
+  s.name = "yard-restful"
   s.version = "1.2.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Sebastian Pape", "Konstantin Rafalsky"]
-  s.date = "2012-10-12"
+  s.authors = ["Konstantin Rafalsky"]
+  s.date = "2012-10-23"
   s.description = "A customized plugin for Yardoc that produces API documentation for Restful web services"
   s.email = ""
   s.extra_rdoc_files = [
@@ -18,9 +18,6 @@ Gem::Specification.new do |s|
   ]
   s.files = [
     "Rakefile",
-    "example/app/controllers/examples_controller.rb",
-    "example/app/models/examples_model.rb",
-    "example/doc/README_FOR_API",
     "lib/yard-rest.rb",
     "lib/yard-rest/html_blocks_helper.rb",
     "lib/yard-rest/rest_filters.rb",
@@ -43,7 +40,7 @@ Gem::Specification.new do |s|
     "templates/default/layout/html/layout.erb",
     "templates/default/layout/html/setup.rb"
   ]
-  s.homepage = "https://github.com/kraft/yard-rest-plugin"
+  s.homepage = "https://github.com/kraft/yard-restful"
   s.require_paths = ["lib"]
   s.rubygems_version = "1.8.24"
   s.summary = "A customized plugin for Yardoc that produces API documentation for Restful web services"
@@ -52,12 +49,12 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<yard>, ["~> 0.8.1"])
+      s.add_runtime_dependency(%q<yard>, ["~> 0.8.3"])
     else
-      s.add_dependency(%q<yard>, ["~> 0.8.1"])
+      s.add_dependency(%q<yard>, ["~> 0.8.3"])
     end
   else
-    s.add_dependency(%q<yard>, ["~> 0.8.1"])
+    s.add_dependency(%q<yard>, ["~> 0.8.3"])
   end
 end
 
