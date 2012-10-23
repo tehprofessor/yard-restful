@@ -41,7 +41,10 @@ So that way, whenever you want to generate your API docs, you simply need to run
 
 ## See an API-Example
 
-[Sample application](http://kraft001.github.com/yard-restful-sample)
+[Sample application](http://github.com/kraft001/yard-restful-sample)
+
+[Demo documentation](http://kraft001.github.com/yard-restful-sample/public/api_doc/index.html) or
+[with frames](http://kraft001.github.com/yard-restful-sample/public/api_doc/frames.html)
 
 ## Writing Comments
 
@@ -111,7 +114,7 @@ This plugin only documents **classes** and **methods** with **@restful_api** tag
 
 ## Example:
 
-[Sample controller](http://kraft001.github.com/yard-restful-sample/app/controllers/books_controller.rb) and [sample model](http://kraft001.github.com/yard-restful-sample/app/models/book.rb)
+[Sample controller](http://github.com/kraft001/yard-restful-sample/app/controllers/books_controller.rb) and [sample model](http://github.com/kraft001/yard-restful-sample/app/models/book.rb)
 
 ## Development
 
