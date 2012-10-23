@@ -1,12 +1,12 @@
 # Define custom tags
 tags = [
-  ["URL for the Resource",          :resource],
+  ["Declaration of RESTful API type",:restful_api],
   ["URL",                           :url],
   ["HTTP-Action for the Resource",  :action],
 
-  ["Object Used in Resource",       :resource_object],
-  ["Resource Object Property",      :resource_object_property, :with_types_and_name],
-  ["Resource Object Example",       :resource_object_example],
+  #["Object Used in Resource",       :resource_object],
+  ["Resource Object Property",      :property, :with_types_and_name],
+  ["Resource Object Example",       :example],
 
   ["Required Arguments",            :required,          :with_types_and_name],
   ["Optional Arguments",            :optional,          :with_types_and_name],
@@ -18,9 +18,7 @@ tags = [
   ["Example Response",              :example_response],
   ["Example Response Description",  :example_response_description],
   ["Response Fields",               :response_field,    :with_types_and_name],
-  ["Response Type",                 :response,    :with_types],
-
-  ["Headers",                       :header, :with_name],
+  ["Response Type",                 :response,    :with_types]
 ]
 
 tags.each do |tag|

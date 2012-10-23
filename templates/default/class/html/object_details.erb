@@ -1,9 +1,9 @@
-<% if object.has_tag?(:resource_object) %>
+<% if object.restful? && !object.resource? %>
   <h3 class="object_properties_title">Object properties</h3>
-  <%= yieldall(item: :resource_object_property, title: '') %>
-  <% if object.tags(:resource_object_example).size > 0 %>
+  <%= yieldall(item: :property, title: '') %>
+  <% if object.tags(:example).size > 0 %>
     <h3>Examples</h3>
-    <% object.tags(:resource_object_example).each do |tag| %>
+    <% object.tags(:example).each do |tag| %>
       <div class="example">
         <%= htmlify(tag.text) %>
       </div>

@@ -1,4 +1,6 @@
-<% @items.each do |resource| %>
-  <li class="<%= rotate(:r2_r1_r2) %>"><%= linkify(resource, resource.name.to_s.gsub(/Controller/, "")) %></li>
+<% @items.each do |obj| %>
+  <li class="<%= rotate(:r2_r1_r2) %>">
+    <%= linkify(obj, obj.name) %>
+  </li>
 <% end %>
 

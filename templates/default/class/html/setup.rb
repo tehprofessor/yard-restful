@@ -5,7 +5,7 @@ def init
 end
 
 def resource_details
-  @meths = object.meths.select{|x| x.has_tag? :resource}
+  @meths = (object.meths.select{|x| x.has_tag? :url} || [])
   erb(:resource_details)
 end
 

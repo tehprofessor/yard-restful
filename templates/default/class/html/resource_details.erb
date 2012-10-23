@@ -1,8 +1,8 @@
-<% unless @meths.empty? %>
+<% if object.restful? && object.resource? %>
   <div id="Services" class="method_details_list">
     <% @meths.each do |meth| %>
 		<div class="method">
-      <h3><%= meth.tag(:resource).text %></h3>
+      <h3><%= meth.name %></h3>
 			<p class="method_desc"><%= meth.docstring %></p>
 
       <% if meth.tags(:url).size > 0 %>
