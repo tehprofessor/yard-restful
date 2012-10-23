@@ -2,7 +2,7 @@ module YARD
     module CodeObjects
       class Base
         def restful?
-          has_tag?(:restful_api) #&& tag(:restful_api).text == options.restful_api
+          has_tag?(:restful_api)
         end
         def resource?
           meths.any?{ |m| m.has_tag?(:url) }
