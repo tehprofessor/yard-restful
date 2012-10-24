@@ -21,10 +21,25 @@ end
 
 desc "Rebuild the gem from the gemspec"
 task :rebuild do
-  gemfilename = 'yard-restful-' + File.open('VERSION').gets.strip + '.gem'
+  gemfilename = 'yard-restful-' + IO.read('VERSION').strip + '.gem'
   `rm yard-restful-*.gem`
-  `gem uninstall yard-restful&& \
+  `gem uninstall yard-restful && \
    gem build yard-restful.gemspec && \
    gem install #{gemfilename}`
 end
 
+namespace :example do
+  desc "Generate example docs"
+  task :generate do
+    puts `yardoc -e ./lib/yard-restful.rb --title "Example Books API" --readme ./example/API_README.md --markup markdown ./example/*.rb`
+    # `x-www-browser ./doc/index.html`
+    puts 'On success open ./doc/index.html or ./doc/frames.html in your preferred browser'
+  end
+
+  desc "Clean example docs"
+  task :clean do
+    `rm -R doc`
+    `rm -R .yardoc`
+    puts 'Done!'
+  end
+end

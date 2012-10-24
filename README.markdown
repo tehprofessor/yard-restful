@@ -1,11 +1,11 @@
 # Yardoc RESTful Web Service Plugin
 
-Previous authors: [vWorkApp](http://www.vworkapp.com), [rknLA](http://github.com/rknLA), [lsegal](http://gnuu.org/), [spape](http://github.com/spape), [DerNalia](http://github.com/DerNalia)
-
 A plugin for [Yardoc](http://yardoc.org/) that generates documentation for RESTful web services.
 
+Previous authors: [vWorkApp](http://www.vworkapp.com), [rknLA](http://github.com/rknLA), [lsegal](http://gnuu.org/), [spape](http://github.com/spape), [DerNalia](http://github.com/DerNalia)
+
 ## Install
-Bundler will reduce your headaches, so, please you that
+Bundler will reduce your headaches:
 
 	gem 'yard-restful' # in your gemfile
 
@@ -18,8 +18,7 @@ It also requires the Jeweler gem if you plan to use the rake build tasks.
 
 You'll probably want to add these to your .gitignore as well
 
-	/.yardoc/*/*
-	/.yardoc/*
+	/.yardoc
 	/public/api
 
 So you'll have to re-genenarte your API on every machine. This should encourage more up to dateness
@@ -39,12 +38,13 @@ So that way, whenever you want to generate your API docs, you simply need to run
 	bundle exec yardoc
 
 
-## See an API-Example
+## Samples
 
-[Sample application](http://github.com/kraft001/yard-restful-sample)
+[Full rails 3 application](http://github.com/kraft001/yard-restful-sample) with [documentation](http://kraft001.github.com/yard-restful-sample/index.html)
 
-[Demo documentation](http://kraft001.github.com/yard-restful-sample/index.html) or
-[with frames](http://kraft001.github.com/yard-restful-sample/frames.html)
+[Example documentation](http://kraft001.github.com/yard-restful/index.html), also [with frames](http://kraft001.github.com/yard-restful/frames.html)
+
+[Sample controller](http://github.com/kraft001/yard-restful/blob/master/example/books_controller.rb) and [sample model](http://github.com/kraft001/yard-restful/blob/master/example/book.rb)
 
 ## Writing Comments
 
@@ -112,13 +112,14 @@ Markdown rendering for the text is activated if a tags text contains a newline (
 
 This plugin only documents **classes** and **methods** with **@restful_api** tag. It does not support module documentation.
 
-## Example:
-
-[Sample controller](http://github.com/kraft001/yard-restful-sample/blob/master/app/controllers/books_controller.rb) and [sample model](http://github.com/kraft001/yard-restful-sample/blob/master/app/models/book.rb)
-
 ## Development
 
 As always, you can see what tasks are available by running:
 
     rake -T
+
+You can run the template locally over the included sample code by using the following rake tasks:
+
+    rake example:generate
+    rake example:clean
 

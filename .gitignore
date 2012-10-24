@@ -4,4 +4,6 @@
 .project
 pkg
 *.swp
-
+doc/
+.ruby-version
+*.gem

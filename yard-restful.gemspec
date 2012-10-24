@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "yard-restful"
-  s.version = "1.2.1"
+  s.version = "1.2.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Konstantin Rafalsky"]
-  s.date = "2012-10-23"
+  s.date = "2012-10-24"
   s.description = "A customized plugin for Yardoc that produces API documentation for Restful web services"
   s.email = ""
   s.extra_rdoc_files = [
@@ -18,10 +18,10 @@ Gem::Specification.new do |s|
   ]
   s.files = [
     "Rakefile",
-    "lib/yard-rest.rb",
-    "lib/yard-rest/html_blocks_helper.rb",
-    "lib/yard-rest/rest_filters.rb",
-    "lib/yard-rest/tags.rb",
+    "lib/yard-restful.rb",
+    "lib/yard-restful/html_blocks_helper.rb",
+    "lib/yard-restful/rest_filters.rb",
+    "lib/yard-restful/tags.rb",
     "templates/default/class/html/fields_list.erb",
     "templates/default/class/html/header.erb",
     "templates/default/class/html/object_details.erb",

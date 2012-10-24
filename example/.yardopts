@@ -1,0 +1,7 @@
+--title "Example Books API"
+--plugin rest
+--query '@restful_api.text == "1.0"'
+--readme API_README.md
+--output-dir ./doc
+--markup markdown
+*.rb
