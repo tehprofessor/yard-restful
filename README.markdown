@@ -1,8 +1,13 @@
 # Yardoc RESTful Web Service Plugin
-
 A plugin for [Yardoc](http://yardoc.org/) that generates documentation for RESTful web services.
 
 Previous authors: [vWorkApp](http://www.vworkapp.com), [rknLA](http://github.com/rknLA), [lsegal](http://gnuu.org/), [spape](http://github.com/spape), [DerNalia](http://github.com/DerNalia)
+
+## Main features
+Plugin provides custom tags to describe resources (controllers) and resulting objects (models).
+
+If you use an object name in description of resource parameters, it will
+be linked to the object description.
 
 ## Install
 Bundler will reduce your headaches:
@@ -18,8 +23,8 @@ It also requires the Jeweler gem if you plan to use the rake build tasks.
 
 You'll probably want to add these to your .gitignore as well
 
-	/.yardoc
-	/public/api
+	.yardoc
+	public/api
 
 So you'll have to re-genenarte your API on every machine. This should encourage more up to dateness
 
@@ -27,7 +32,7 @@ So you'll have to re-genenarte your API on every machine. This should encourage 
 It is recommended that you use a .yardopts file
 
 	--title "My API Documentation"
-	--plugin rest
+	--plugin restful
 	--readme API_README
 	--output-dir ./public/api
 	app/models/**/*.rb
