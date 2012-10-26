@@ -60,9 +60,13 @@ class BooksController
   #
   # View list of all books
   #
+  # @optional [Integer] page Page number
   # @optional [Integer] year Filter books by imprint date
   #
-  # @response [Array<Book>] List of books
+  # @response_field [Integer] page Page number
+  # @response_field [Integer] total_pages Total number of pages
+  # @response_field [Integer] total_books Total number of books
+  # @response_field [Array<Book>] books List of books on this page
   #
   def index
     # ...
