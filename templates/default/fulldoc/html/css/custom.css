@@ -49,9 +49,8 @@ p.method_desc {
 h2 {
   margin: 2.4em 0 0.5em;
 }
-.service h2 + p {
+.service .description p {
   font-size: 1.2em;
-  margin-bottom: 62px;
 }
 .method {
   display: block;
