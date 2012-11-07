@@ -31,6 +31,14 @@ end
 namespace :example do
   desc "Generate example docs"
   task :generate do
+    unless gem_available?('yard-restful')
+      puts 'Gem yard-restful is not installed. Trying to build from local version.'
+      Rake::Task["rebuild"].execute
+      puts 'Gem yard-restful should be installed.'
+    end
+    unless gem_available?('redcarpet')
+      puts 'Warning: gem redcarpet is not installed. Some texts may look ugly.'
+    end
     puts `yardoc -e ./lib/yard-restful.rb --title "Example Books API" --readme ./example/API_README.md --markup markdown ./example/*.rb`
     # `x-www-browser ./doc/index.html`
     puts 'On success open ./doc/index.html or ./doc/frames.html in your preferred browser'
@@ -42,4 +50,18 @@ namespace :example do
     `rm -R .yardoc`
     puts 'Done!'
   end
+end
+
+def gem_available?(name, requirements = nil)
+  Gem::Specification.find_by_name(name, requirements)
+  true
+rescue Gem::LoadError
+  false
+rescue
+   Gem.available?(name)
+#  Gem.source_index.find_name(name, requirements).empty?
+#  gem name.to_s, requirements
+#  return true
+#rescue GEM::LoadError
+#  return false
 end
