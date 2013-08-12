@@ -2,6 +2,7 @@
 tags = [
   ["Declaration of RESTful API type",:restful_api],
   ["URL",                           :url],
+  ["Alternative",                   :alt],
   ["HTTP-Action for the Resource",  :action],
 
   #["Object Used in Resource",       :resource_object],
