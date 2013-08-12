@@ -11,8 +11,10 @@
           <span class="action"><%= meth.tag(:action).text %></span>
           <span class="url"><%= meth.tag(:url).text %></span>
           <br/>
+          <% if meth.tags(:alt).size > 0 %>
           <span class="action"><%= meth.tag(:action).text %></span>
-          <span class="url"><%= meth.tag(:alt).text if meth.tag(:alt) %></span>
+          <span class="url"><%= meth.tag(:alt).text %></span>
+          <% end %>
         </div>
       <% end %>
 
