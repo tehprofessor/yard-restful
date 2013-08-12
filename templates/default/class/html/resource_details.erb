@@ -10,7 +10,7 @@
           <h4>URL</h4>
           <span class="action"><%= meth.tag(:action).text %></span>
           <span class="url"><%= meth.tag(:url).text %></span>
-          <span class="url"><%= meth.tag(:alt).text %></span>
+          <span class="url"><%= meth.tag(:alt).text if meth.tag(:alt) %></span>
         </div>
       <% end %>
 
