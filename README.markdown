@@ -1,7 +1,7 @@
 # Yardoc RESTful Web Service Plugin
 A plugin for [Yardoc](http://yardoc.org/) that generates documentation for RESTful web services.
 
-Previous authors: [vWorkApp](http://www.vworkapp.com), [rknLA](http://github.com/rknLA), [lsegal](http://gnuu.org/), [spape](http://github.com/spape), [DerNalia](http://github.com/DerNalia)
+Previous authors: [kraft001](https://github.com/kraft001), [vWorkApp](http://www.vworkapp.com), [rknLA](http://github.com/rknLA), [lsegal](http://gnuu.org/), [spape](http://github.com/spape), [DerNalia](http://github.com/DerNalia)
 
 ## Main features
 Plugin provides custom tags to describe resources (controllers) and resulting objects (models).
@@ -62,6 +62,10 @@ The following tags are provided:
 - **@url** url
 
   Specifies the URL which someone should use to access that resource.
+  
+- **@alt** alt
+
+  Specifies an alternative URL which someone should use to access that resource.
 
 - **@action** action
 
@@ -69,11 +73,11 @@ The following tags are provided:
 
 - **@required** [type] name description
 
-  Specifies an argument that must be passed to the service. You can specify as many of these as you need.
+  Specifies an argument that must be passed to the service. You can specify as many of these as you need. If you use markdown's 'bold' syntax (two asterisks) in the description it will turn the text red as well.
 
 - **@optional** [type] name description
 
-  Specifies an optional argument that may be passed to the service. You can specify as many of these as you need.
+  Specifies an optional argument that may be passed to the service. You can specify as many of these as you need. If you use markdown's 'bold' syntax (two asterisks) in the description it will turn the text red as well. This is useful for highlighting arguments which are dependent on other arguments.
 
 - **@response** [type] description
 
